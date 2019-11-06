@@ -1,0 +1,112 @@
+$carousel-circle-size: 510px;
+$carousel-circle-neg-margin: -350px;
+
+$carousel-circle-size-tablet: 400px;
+$carousel-circle-neg-margin-tablet: -250px;
+
+.organisms__item-carousel{
+
+  width: 100%;
+  .card__inner {
+    position: relative;
+   // max-width: $page-max-width;
+    overflow: hidden;
+
+  // the carousel navigation
+
+    .slick__nav {
+      position: absolute;
+      z-index: 99;
+      @include mq-phone { display: none; }
+      button{
+        background-color: transparent;
+        border: none;
+        color: $color-text-blue;
+        font-size: $font-size-play;
+        height: 40px;
+        @include mq-tablet {height: 50px;}
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        &:focus, &:active {
+          border: none;
+          outline: none;
+        }
+        i {
+          padding-right: 10px;
+          padding-left: 10px;
+          margin-left: 15px;
+          margin-right: 15px;
+          &:focus, &:active {
+            border: none;
+            outline: none;
+          }
+        }
+      }
+      &.slick__prev{
+        top: 0;
+        left: $carousel-circle-neg-margin;
+        @include mq-tablet {
+          left: $carousel-circle-neg-margin-tablet;
+        }
+        display: none;
+      }
+      &.slick__next{
+        top: 0;
+        right: $carousel-circle-neg-margin;
+        @include mq-tablet {
+          right: $carousel-circle-neg-margin-tablet;
+        }
+      }
+      .circle{
+        height: $carousel-circle-size;
+        width: $carousel-circle-size;
+        @include mq-tablet {
+          height: $carousel-circle-size-tablet;
+          width: $carousel-circle-size-tablet;
+        }
+        background-color: $color-primary-white;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-top: -25px;
+      }
+      .circle__left{
+        justify-content: flex-end;
+        button{
+          margin-right: 40px;
+          @include mq-tablet {margin-right: 0px;}
+        }
+      }
+      .circle__right{
+        justify-content: flex-start;
+        button{
+          margin-left: 40px;
+           @include mq-tablet {margin-left: 0px;}
+        }
+      }
+    }
+
+    // the content in the carousel
+   .slick__container {
+    @include mq-tablet {height: 360px;}
+    @include mq-phone { display: none; }
+      .slick-track { }
+    }
+  }
+
+}
+
+
+@media #{$tablet} {
+  .organisms__item-carousel{
+    .card__inner {
+//       .slick__buttons {
+//         right: 18%;
+//       }
+    }
+  }
+}

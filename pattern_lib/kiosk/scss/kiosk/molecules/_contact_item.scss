@@ -1,0 +1,86 @@
+.molecules__contact-item{
+  .card__inner{
+    background-image: url(../..//..//..//kiosk/images/contact-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 280px; //250px;
+    height: 224px; //200px;
+    color: $color-primary-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    @include mq-tablet { margin-top: 8px; }
+    @include mq-kiosk {
+      width: 250px;
+      height: 200px;
+    }
+
+    .circle__onsite{
+      height: 100px;
+      width: 100px;
+      background-color: $color-secondary-green;
+      border-radius: 50%;
+      font-size: 16px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -50px;
+      left: -50px;
+
+      @include mq-phone-and-tablet {
+        border-radius: 0%;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 40px;
+        br {display: none;}
+      }
+
+      @include mq-tablet {
+        height: 50px;
+        width: 158px;
+        border-radius: 4px;
+        left: 6px;
+        top: -34px;
+      }
+
+    }
+
+    .contact__name {
+      font-weight: $font-bold-weight;
+      font-size: 24px;
+    }
+    .contact__email, .contact__phone{
+      font-size: 16px;
+      font-weight: normal;
+      letter-spacing: 2px;
+      display: none;
+      word-break: break-all;
+      padding: 0 15px;
+      a, a:hover, a:focus {color: $color-primary-white;}
+    }
+    &:hover {
+      cursor: pointer;
+      .contact__email, .contact__phone{
+        display: block;
+      }
+    }
+  }
+
+}
+
+@media #{$device} {
+  .molecules__contact-item{
+    .card__inner{
+      width: 100%;
+      .atom__text{
+        padding: 0 20px;
+        word-wrap: break-word;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+model:
+  image:
+    src: '{{ URL(kiosk/images/demo/splash-bg.jpg) }}'
+    alt: 'Splash background'
+  name:
+    value: 'Patient Advocacy Connection'
+  title:
+    value: 'Make a Difference.'
+  description:
+    value: 'Make the matches that matter with <string>Patient Advocacy Connection</strong> with over 50 non-profits to choose from. We connect you to organizations to help you take action on the issues that matter to you.'
+  cta_link:
+    url: '/patient-advocacy-connection'
+    title: 'Touch to Begin'
+  styles: 
+    - 'orange-skin'

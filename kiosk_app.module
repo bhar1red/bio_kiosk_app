@@ -1,0 +1,523 @@
+<?php
+
+require_once DRUPAL_ROOT . '/sites/all/modules/custom/dcf_core/autoloader.php';
+
+autoloader(array(
+    __DIR__ . '/src/Service',
+    __DIR__ . '/src/Handler',
+), false);
+
+function kiosk_app_register_dcf_app_root(){
+    return [
+        'kiosk_app' => __DIR__
+    ];
+}
+
+/**
+ * Implements hook_services_resources().
+ * Create service resource for APIs to return the necessary json data.
+ */
+
+function kiosk_app_services_resources() {
+    $resources = array();
+    
+    //Include the necessary inc files.
+    module_load_include('inc', 'kiosk_app', 'includes/collection.service');
+    
+    //Service Apis for contents.
+    $resources += kiosk_app_collection_service_resource();
+    
+    return $resources;
+}
+
+/**
+ * implements hook_dcf_adapter_post_transform
+ */
+function kiosk_app_dcf_adapter_post_transform(AdapterTransformEvent $event){
+    $adapter_name = $event->getKey();
+    switch($adapter_name){
+        
+        case 'node_patient_group--badge_scan_popup' :
+            $handler = new PatientGroupHandler($event);
+            $handler->loadRelatedOrganizations();
+            break;
+        case 'node_patient_group--org_detail_page':
+            $handler = new PatientGroupHandler($event);
+            $handler->processDetail();
+            break;
+        case 'overview_patient_group--carousel':
+            $handler = new PatientGroupHandler($event);
+            $handler->loadCarousel();
+            break;
+        case 'list_patient_group--item_grid':
+            $handler = new PatientGroupHandler($event);
+            $handler->loadLogoList();
+            break;
+        case 'node_patient_group--logo_item':
+            $handler = new PatientGroupHandler($event);
+            $handler->processLogoTeaser();
+            break;
+        case 'node_patient_group--overview_item':
+            $handler = new PatientGroupHandler($event);
+            $handler->processOverview();
+            break;
+        case 'landing_kiosk--splash_menu':
+            $handler = new SplashHandler($event);
+            $handler->processMenu();
+            break;
+        case 'landing_kiosk--splash_main':
+            $handler = new SplashHandler($event);
+            $handler->processCarousal();
+            break;
+        case 'landing_kiosk--splash_page':
+            $handler = new SplashHandler($event);
+            $handler->load();
+            break;
+        case 'taxonomy_kiosk_domain--splash_pane':
+            $handler = new SplashHandler($event);
+            $handler->processPane();
+            break;
+        case 'kiosk_domain--tab_menu':
+            $handler = new PatientGroupHandler($event);
+            $handler->processLandingMenu();
+            break;
+        case 'kiosk_detail--breadcrumb':
+            $handler = new PatientGroupHandler($event);
+            $handler->processDetailBreadcrumb();
+            break;
+        case 'email_contact_list':
+            $handler = new PatientGroupHandler($event);
+            $handler->processEmailContactList();
+            break;
+    }
+}
+
+/**
+ * implements hook_menu
+ */
+function kiosk_app_menu(){
+    return [
+        'admin/config/kiosk' => [
+            'title' => t('Kiosk Configuration'),
+            'description' => t('Configuration for Kiosk Application'),
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('kiosk_app_admin_form'),
+            'access arguments' => array('access administration pages'),
+            'type' => MENU_NORMAL_ITEM,
+        ],
+        'kiosk/demo/splash' => [
+            'title' => t('Kiosk Splash Demo'),
+            'page callback' => 'kiosk_demo_splash',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        ],
+        'kiosk/home' => [
+            'title' => t('Kiosk Home'),
+            'page callback' => 'kiosk_home_splash',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        ]
+    ];
+}
+
+
+/**
+ * Page Callback: Kiosk App Configuration Form
+ *
+ * @see kiosk_app_menu()
+ */
+function kiosk_app_admin_form($form, &$form_state) {
+    
+    $form['kiosk_app_details'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('App Settings'),
+        '#weight' => 2,
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+    );
+    $form['kiosk_app_qr_api_details'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Api Settings'),
+        '#weight' => 3,
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+    );
+    $form['kiosk_carousel_settings'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Carousel Settings'),
+        '#weight' => 4,
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+    );
+    $form['kiosk_convention_title'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Convention Title'),
+        '#description' => t('Convention Title. Default Value: BIO 2019'),
+        '#default_value' => variable_get('kiosk_convention_title', 'BIO'.' '.date("Y")),
+        '#required' => TRUE,
+        '#weight' => '0',
+    );
+    
+    $form['kiosk_app_submit_mode'] = array(
+        '#type' => 'radios',
+        '#title' => t('Kiosk Email Submit Mode '),
+        '#default_value' => variable_get('kiosk_app_submit_mode', 0),
+        '#options' => array(t('Email-Only'), t('Badge-Scan')),
+        '#description' => t('Email submit mode for kiosk app. Choose between email-only or QR scan modes. '),
+        '#required' => TRUE,
+        '#weight' => '1',
+    );
+    $form['kiosk_app_qr_api_details']['kiosk_app_api_base'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Experient Endpoint'),
+        '#description' => t('Base URL for Experient WAP API'),
+        '#default_value' => variable_get('kiosk_app_api_base', ''),
+        '#required' => TRUE,
+        '#weight' => '2',
+    );
+    $form['kiosk_app_qr_api_details']['kiosk_app_api_key'] = array(
+        '#type' => 'textfield',
+        '#title' => t('API Key'),
+        '#description' => t('API key'),
+        '#default_value' => variable_get('kiosk_app_api_key', ''),
+        '#required' => TRUE,
+        '#weight' => '3',
+    );
+    $form['kiosk_app_qr_api_details']['kiosk_app_act_code'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Act Code'),
+        '#description' => t('Act Code'),
+        '#default_value' => variable_get('kiosk_app_act_code', ''),
+        '#required' => TRUE,
+        '#weight' => '4',
+    );
+    $form['kiosk_app_qr_api_details']['kiosk_app_api_badge_id'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Badge ID'),
+        '#description' => t('API Badge ID'),
+        '#default_value' => variable_get('kiosk_app_api_badge_id', ''),
+        '#required' => TRUE,
+        '#weight' => '5',
+    );
+    $form['kiosk_app_details']['kiosk_from_email'] = array(
+        '#type' => 'textfield',
+        '#title' => t('From Email'),
+        '#description' => t('Email to send emails from'),
+        '#default_value' => variable_get('kiosk_from_email', ''),
+        '#required' => TRUE,
+        '#weight' => '6',
+    );
+    $default_disclaimer = [
+      'value' => '<p style="font-size: 10px"> Please do not reply to this email. It was sent from an unmonitored inbox. The email is intended for use by the named addressee only. If you are not the intended recipient of this email or received this in error, please immediately and permanently delete this email.</p>'
+    ];
+    $form['kiosk_app_details']['kiosk_email_disclaimer'] = array(
+        '#type' => 'text_format',
+        '#format' => 'full_html',
+        '#title' => t('Email Disclaimer'),
+        '#required' => TRUE, 
+        '#default_value' => variable_get('kiosk_email_disclaimer', $default_disclaimer)['value'],
+        '#weight' => '7',  
+        
+    );
+    $form['kiosk_app_details']['kiosk_modal_timeout'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Scan Timeout (sec)'),
+        '#description' => t('Timeout in seconds for modal, i.e. scan-process'),
+        '#default_value' => variable_get('kiosk_modal_timeout', '30'),
+        '#required' => TRUE,
+        '#weight' => '8',
+    );
+    $form['kiosk_app_details']['kiosk_modal_timeout_buffer'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Scan Timeout Auto Reload (sec)'),
+        '#description' => t('Number of seconds, Timeout modal stays active before reloading page.'),
+        '#default_value' => variable_get('kiosk_modal_timeout_buffer', '15'),
+        '#required' => TRUE,
+        '#weight' => '9',
+    );
+    $form['kiosk_app_details']['kiosk_app_timeout'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Global Timeout (sec)'),
+        '#description' => t('Timeout in seconds for entire application'),
+        '#default_value' => variable_get('kiosk_app_timeout', '30'),
+        '#required' => TRUE,
+        '#weight' => '10',
+    );
+    $form['kiosk_app_details']['kiosk_app_timeout_buffer'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Global Timeout Auto Reload (sec)'),
+        '#description' => t('Number of seconds, Timeout screen stays active before reloading page.'),
+        '#default_value' => variable_get('kiosk_app_timeout_buffer', '15'),
+        '#required' => TRUE,
+        '#weight' => '11',
+    );
+    $form['kiosk_carousel_settings']['splash-autoplay-speed'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Splash Autoplay Speed (sec)'),
+        '#description' => t(''),
+        '#default_value' => variable_get('splash-autoplay-speed', '5'),
+        '#required' => TRUE,
+        '#weight' => '1',
+    );
+    $form['kiosk_carousel_settings']['splash-animation-speed'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Splash Animation Speed (sec)'),
+        '#description' => t(''),
+        '#default_value' => variable_get('splash-animation-speed', '1'),
+        '#required' => TRUE,
+        '#weight' => '2',
+    );
+    $form['kiosk_carousel_settings']['landing-slider-autoplay-speed'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Landing Slider Autoplay Speed (sec)'),
+        '#description' => t(''),
+        '#default_value' => variable_get('landing-slider-autoplay-speed', '9.5'),
+        '#required' => TRUE,
+        '#weight' => '3',
+    );
+    $form['kiosk_carousel_settings']['landing-slider-animation-speed'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Landing Slider Animation Speed (sec)'),
+        '#description' => t(''),
+        '#default_value' => variable_get('landing-slider-animation-speed', '0.5'),
+        '#required' => TRUE,
+        '#weight' => '4',
+    );
+    
+    return system_settings_form($form);
+}
+
+/**
+ * patient group css/js library
+ */
+function _kiosk_app_attach_ui_libraries(){
+    $lib_path = libraries_get_path('slick');
+    drupal_add_css($lib_path.'/slick.css');
+    drupal_add_css($lib_path.'/slick-theme.css');
+    drupal_add_js($lib_path.'/slick.js');
+    
+    //  $lib_path = libraries_get_path('circle-progress');
+    //  drupal_add_js($lib_path.'/dist/circle-progress.min.js');
+    
+    $lib_path = libraries_get_path('as-pie-progress');
+    drupal_add_js($lib_path.'/dist/jquery-asPieProgress.min.js');
+    
+    $lib_path = libraries_get_path('animate');
+    drupal_add_css($lib_path.'/animate.min.css');
+    
+    $module_path = drupal_get_path('module', 'kiosk_app');
+    drupal_add_css($module_path.'/pattern_lib/kiosk/css/kiosk.css');
+
+    drupal_add_js(array(
+        'kiosk_app' => array(
+            'splashAutoplaySpeed' => !empty(variable_get('splash-autoplay-speed')) ? variable_get('splash-autoplay-speed') : 5 ,
+            'splashAnimationSpeed' => !empty(variable_get('splash-animation-speed')) ? variable_get('splash-animation-speed') : 1,
+            'landingSliderAutoplaySpeed' => !empty(variable_get('landing-slider-autoplay-speed')) ? variable_get('landing-slider-autoplay-speed') : 9.5,
+            'landingSliderAnimationSpeed' => !empty(variable_get('landing-slider-animation-speed')) ? variable_get('landing-slider-animation-speed') : 0.5,
+        )
+    ), array('type' => 'setting'));
+    
+    
+    drupal_add_js($module_path.'/pattern_lib/kiosk/js/kiosk.js');
+    drupal_add_js('sites/all/libraries/instascan/instascan.min.js');
+    drupal_add_js($module_path.'/pattern_lib/kiosk/js/kiosk_splash.js');
+    
+}
+
+
+/**
+ * implements hook_preprocess_page
+ */
+function kiosk_app_preprocess_page(&$vars){
+    $current_path = current_path();
+    $entity = menu_get_object();
+    $args = arg();
+    drupal_add_css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',array('type' => 'external'));
+    if((!empty($vars['page']['content']['system_main']['#term']) && $vars['page']['content']['system_main']['#term']->vocabulary_machine_name =='kiosk_domain' && empty($args[3])) ||
+        (!empty($entity->type) && $entity->type=='patient_group' && empty($args[2])) ||
+        strpos($current_path,'kiosk/')===0
+        ){
+            $vars['theme_hook_suggestions'][] = 'page_kiosk';
+    }
+}
+
+
+/**
+ * implements hook_css_alter
+ */
+function kiosk_app_css_alter(&$css) {
+    // Remove old fontawesome css
+    $exclude = array(
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' => FALSE,
+    );
+    $css = array_diff_key($css, $exclude);
+}
+
+/**
+ * implements hook_preprocess_node
+ */
+function kiosk_app_preprocess_node(&$vars){
+    $node = $vars['node'];
+    switch($node->type){
+        case 'patient_group':
+            $vars['theme_hook_suggestions'][] = 'node_kiosk';
+            $data_source = new KioskDataSource();
+            $app = new StandardApp();
+            $source = $data_source->detailSource($node);
+            $vars['component'] = $app->getElement('org_detail_page',$source);
+            _kiosk_app_attach_ui_libraries();
+            drupal_add_js(array(
+                'kiosk_app' => array(
+                    'node_id' => $node->nid,
+                    'modal_timeout' => variable_get('kiosk_modal_timeout'),
+                    'modal_timeout_buffer' => variable_get('kiosk_modal_timeout_buffer'),
+                    'app_timeout' => variable_get('kiosk_app_timeout'),
+                    'app_timeout_buffer' => variable_get('kiosk_app_timeout_buffer'),
+                )
+            ), array('type' => 'setting'));
+            drupal_add_js(drupal_get_path('module', 'kiosk_app') . '/pattern_lib/kiosk/js/kiosk_timeout.js');
+            drupal_add_js(drupal_get_path('module', 'kiosk_app') . '/pattern_lib/kiosk/js/kiosk_qrscanner.js');
+            break;
+    }
+}
+
+/**
+ * implements hook_preprocess_taxonomy_term
+ */
+function kiosk_app_preprocess_taxonomy_term(&$vars){
+    $term = $vars['term'];
+    switch($term->vocabulary_machine_name){
+        case 'kiosk_domain':
+            $vars['theme_hook_suggestions'][] = 'term_kiosk';
+            $data_source = new KioskDataSource();
+            $app = new StandardApp();
+            $source = $data_source->domainLandingSource($term);
+            $vars['component'] = $app->getElement('kiosk_domain_landing',$source);
+            _kiosk_app_attach_ui_libraries();
+            drupal_add_js(array(
+                'kiosk_app' => array(
+                    'modal_timeout' => variable_get('kiosk_modal_timeout'),
+                    'modal_timeout_buffer' => variable_get('kiosk_modal_timeout_buffer'),
+                    'app_timeout' => variable_get('kiosk_app_timeout'),
+                    'app_timeout_buffer' => variable_get('kiosk_app_timeout_buffer'),
+                )
+            ), array('type' => 'setting'));
+            
+            drupal_add_js(drupal_get_path('module', 'kiosk_app') . '/pattern_lib/kiosk/js/kiosk_timeout.js');
+            break;
+    }
+}
+
+/**
+ * implements hook_theme
+ */
+function kiosk_app_theme(){
+    $module_path = drupal_get_path('module', 'kiosk_app');
+    return array(
+        'page_kiosk' => array(
+            'template' => 'page_kiosk',
+            'render element' => 'page',
+            'base hook' => 'page',
+            'path' => $module_path . '/theme/templates',
+        ),
+        'node_kiosk' => array(
+            'template' => 'node_kiosk',
+            'render element' => 'node',
+            'base hook' => 'node',
+            'path' => $module_path . '/theme/templates',
+        ),
+        'term_kiosk' => array(
+            'template' => 'term_kiosk',
+            'render element' => 'element',
+            'base hook' => 'taxonomy_term',
+            'path' => $module_path . '/theme/templates',
+        ),
+    );
+}
+
+
+function kiosk_app_mail($key, &$message, $params) {
+    switch ($key) {
+        case 'kiosk-email':
+            $message['subject'] = $params['subject'];
+            $message['body'][] = $params['body'];
+            if(!empty($params['attachments'])){
+                $message['params']['attachments'] = $params['attachments'];
+            }
+            $message['headers'] = array(
+                'Content-Type' => 'text/html; charset=UTF-8;',
+            );
+            break;
+    }
+}
+
+
+function kiosk_demo_splash(){
+    return _kiosk_render_element('splash_demo');
+}
+
+function kiosk_home_splash(){
+    $data_source = new KioskDataSource();
+    $app = new StandardApp();
+    $terms = $data_source->getKioskDomainTerms();
+    $source = $data_source->arraySource($terms, array());
+    $element = $app->getElement('splash_home',$source);
+    _kiosk_app_attach_ui_libraries();
+    return TPLRender::component($element['model'],$element['tpl']);
+}
+
+
+function _kiosk_render_element($element_name){
+    $data_source = new KioskDataSource();
+    $app = new StandardApp();
+    $module_path = drupal_get_path('module', 'kiosk_app');
+    $context['file_root'] = DRUPAL_ROOT . '/'. $module_path . '/pattern_lib';
+    $context['url_root'] = base_path() . $module_path . '/pattern_lib';
+    $source = $data_source->nullSource($context);
+    $element = $app->getElement($element_name,$source);
+    _kiosk_app_attach_ui_libraries();
+    return TPLRender::component($element['model'],$element['tpl']);
+}
+
+
+function kiosk_app_taxonomy_term_presave($term){
+  if($term->vocabulary_machine_name == 'kiosk_domain') {
+    $data_source = new KioskDataSource();
+    $templates = $data_source->getEmailTemplates($term);
+    $term->field_email_subject_to_user['und'][0]['value'] = $templates['user']['subject'];
+    $term->field_email_template_to_user['und'][0]['value'] = $templates['user']['body'];
+    $term->field_email_template_to_user['und'][0]['format'] = 'full_html';
+    $term->field_email_subject_to_organiza['und'][0]['value'] = $templates['org']['subject'];
+    $term->field_email_template_to_organiza['und'][0]['value'] = $templates['org']['body'];
+    $term->field_email_template_to_organiza['und'][0]['format'] = 'full_html';
+  }
+}
+
+function kiosk_app_pwa_manifest_alter(&$manifest){
+    
+    $module_path = drupal_get_path('module', 'kiosk_app');
+    $path = base_path().$module_path;
+    
+    $manifest['icons'] = [
+        [
+            'src' => $path . '/pattern_lib/kiosk/images/app-icons/BIOLogo512.png',
+            'sizes' => '512x512',
+            'type' => 'image/png',
+        ],
+        [
+            'src' => $path . '/pattern_lib/kiosk/images/app-icons/BIOLogo192.png',
+            'sizes' => '192x192',
+            'type' => 'image/png',
+        ],
+        [
+            'src' => $path . '/pattern_lib/kiosk/images/app-icons/BIOLogo144.png',
+            'sizes' => '144x144',
+            'type' => 'image/png',
+        ],
+        [
+            'src' => $path . '/pattern_lib/kiosk/images/app-icons/BIOLogo512.svg',
+            'type' => 'image/svg+xml',
+        ],
+    ];
+    
+}

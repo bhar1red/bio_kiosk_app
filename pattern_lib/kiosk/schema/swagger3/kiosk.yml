@@ -1,0 +1,300 @@
+openapi: 3.0.0
+info:
+  title: Kiosk App Data Schema
+  description: Kiosk App Data Schema
+  version: 1.0.0
+paths:
+  "/dsapi/element/PGOrgList/{id}":
+    get:
+      summary: Retrieve org list page by app domain id
+      description: Returns org list page
+      operationId: elementPGOrgList
+      parameters:
+        - name: id
+          in: path
+          description: app domain id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Element_PGOrgList"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Element_PGOrgList"
+        "404":
+          description: Element not found
+  "/dsapi/element/PGOrgDetail/{id}":
+    get:
+      summary: Retrieve org detail page by id
+      description: Returns org detail page
+      operationId: elementPGOrgDetail
+      parameters:
+        - name: id
+          in: path
+          description: node id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Element_PGOrgDetail"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Element_PGOrgDetail"
+        "404":
+          description: Element not found
+components:
+  schemas:
+    Model_ATText:
+      type: object
+      description: Text Field Data Model
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+    Model_ATLink:
+      type: object
+      description: Link Field Data Model
+      properties:
+        url:
+          type: string
+        title:
+          type: string
+        label:
+          type: string
+    Model_ATImage:
+      type: object
+      description: Image Field Data Model
+      properties:
+        src:
+          type: string
+        alt:
+          type: string
+        title:
+          type: string
+        label:
+          type: string
+    Model_MLContactItem:
+      type: object
+      description: Contact Item Data Model
+      properties:
+        name:
+          $ref: "#/components/schemas/Model_ATText"
+        email:
+          $ref: "#/components/schemas/Model_ATText"
+        phone:
+          $ref: "#/components/schemas/Model_ATText"
+        onsite:
+          $ref: "#/components/schemas/Model_ATText"
+    Element_MLContactItem:
+      type: object
+      description: Contact Item Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_MLContactItem"
+        tpl:
+          type: string
+          enum:
+            - kiosk.molecules.contact_item
+    Model_MLLogoItem:
+      type: object
+      description: Logo Item Data Model
+      properties:
+        logo:
+          $ref: "#/components/schemas/Model_ATImage"
+        target_link:
+          $ref: "#/components/schemas/Model_ATLink"
+        styles:
+          type: array
+          items:
+            type: string
+            enum:
+              - green-skin
+              - purple-skin
+              - blue-skin
+              - orange-skin
+    Element_MLLogoItem:
+      type: object
+      description: Logo Item Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_MLLogoItem"
+        tpl:
+          type: string
+          enum:
+            - kiosk.molecules.logo_item
+    Model_MLBrandItem:
+      type: object
+      description: Brand Item Data Model
+      properties:
+        logo:
+          $ref: "#/components/schemas/Model_ATImage"
+        brand:
+          $ref: "#/components/schemas/Model_ATText"
+    Element_MLBrandItem:
+      type: object
+      description: Brand Item Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_MLBrandItem"
+        tpl:
+          type: string
+          enum:
+            - kiosk.molecules.brand_item
+        item_type:
+          type: string
+          enum:
+            - branding-item
+    Model_MLOverviewItem:
+      type: object
+      description: Overview Item Data Model
+      properties:
+        brand:
+          $ref: "#/components/schemas/Model_ATText"
+        title:
+          $ref: "#/components/schemas/Model_ATText"
+        summary:
+          $ref: "#/components/schemas/Model_ATText"
+        target_link:
+          $ref: "#/components/schemas/Model_ATLink"
+        styles:
+          type: array
+          items:
+            type: string
+            enum:
+              - green-skin
+              - purple-skin
+              - blue-skin
+              - orange-skin
+    Element_MLOverviewItem:
+      type: object
+      description: Overview Item Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_MLOverviewItem"
+        tpl:
+          type: string
+          enum:
+            - kiosk.molecules.overview_item
+        item_type:
+          type: string
+          enum:
+            - overview-item
+    Model_OGCarousel:
+      type: object
+      description: Carousel Data Model
+      properties:
+        slider_list:
+          type: array
+          items:
+            oneOf:
+              - $ref: "#/components/schemas/Element_MLBrandItem"
+              - $ref: "#/components/schemas/Element_MLOverviewItem"
+    Element_OGCarousel:
+      type: object
+      description: Carousel Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_OGCarousel"
+        tpl:
+          type: string
+          enum:
+            - kiosk.organisms.item_carousel
+    Model_OGGrid:
+      type: object
+      description: Grid Data Model
+      properties:
+        layout:
+          type: string
+        items:
+          type: array
+          items:
+            oneOf:
+              - $ref: "#/components/schemas/Element_MLLogoItem"
+              - $ref: "#/components/schemas/Element_MLContactItem"
+    Element_OGGrid:
+      type: object
+      description: Grid Component
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_OGGrid"
+        tpl:
+          type: string
+          enum:
+            - kiosk.organisms.item_grid
+    Model_PGOrgList:
+      type: object
+      description: Organization List data model
+      properties:
+        hero:
+          $ref: "#/components/schemas/Element_OGCarousel"
+        main:
+          $ref: "#/components/schemas/Element_OGGrid"
+    Element_PGOrgList:
+      type: object
+      description: Organization List page
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_PGOrgList"
+        tpl:
+          type: string
+          enum:
+            - kiosk.pages.org_list_page
+    Model_MLMailTo:
+      type: object
+      description: Mailto data model
+      properties:
+        title:
+          type: string
+        subject:
+          type: string
+        body:
+          type: string
+    Model_OGContactList:
+      type: object
+      description: Contact List data model
+      properties:
+        label: 
+          type: string
+        list:
+          $ref: "#/components/schemas/Element_OGGrid"
+        notes:
+          type: string
+    Model_PGOrgDetail:
+      type: object
+      description: Organization Detail data model
+      properties:
+        logo:
+          $ref: "#/components/schemas/Model_ATImage"
+        home:
+          $ref: "#/components/schemas/Model_ATLink"
+        mailto:
+          $ref: "#/components/schemas/Model_MLMailTo"
+        title:
+          $ref: "#/components/schemas/Model_ATText"
+        description:
+          $ref: "#/components/schemas/Model_ATText"
+        website:
+          $ref: "#/components/schemas/Model_ATLink"
+        contact:
+          $ref: "#/components/schemas/Model_OGContactList"
+    Element_PGOrgDetail:
+      type: object
+      description: Organization Detail page
+      properties:
+        model:
+          $ref: "#/components/schemas/Model_PGOrgDetail"
+        tpl:
+          type: string
+          enum:
+            - kiosk.pages.org_detail_page

@@ -1,0 +1,6 @@
+name,weight,path_alias,caption,bg_image,enable,description
+App Title 1,1,app-title-1,Lorem ipsum dolor.,splash-bg.jpg,1,"Curabitur congue tincidunt congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas vel mattis odio. Suspendisse ipsum massa, bibendum id turpis id, tincidunt consectetur tellus."
+Patient Advocacy Connection,2,patient-advocacy-connection,Make a Difference.,splash-bg.jpg,1,"Make the matches that matter with <string>Patient Advocacy Connection</strong> with over 50 non-profits to choose from. We connect you to organizations to help you take action on the issues that matter to you."
+App Title 3,3,app-title-3,Phasellus nisl mauris.,splash-bg.jpg,1,"Maecenas gravida nibh orci, ut accumsan erat posuere in. Curabitur porta rhoncus eros, ac consequat lacus hendrerit vitae. Nulla nec ante eget eros maximus tristique a nec lacus."
+App Title 4,4,app-title-4,Curabitur ullamcorper.,splash-bg.jpg,1,"Duis vel risus ex. Maecenas quis aliquet nulla. In sit amet justo ac lacus rhoncus imperdiet non nec neque. Pellentesque a tincidunt justo, imperdiet ornare nisl."
+App Title 5,5,app-title-5,Maecenas gravida nibh.,splash-bg.jpg,0,"Maecenas quis aliquet nulla. In sit amet justo ac lacus rhoncus imperdiet non nec neque."

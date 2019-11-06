@@ -1,0 +1,7 @@
+model:
+  back_link:
+    url: '/patient-advocacy-connection'
+    title: 'Back'
+  help_link:
+    url: '#'
+    title: 'Help'

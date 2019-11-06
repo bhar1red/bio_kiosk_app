@@ -1,0 +1,57 @@
+
+// this is a card that appears inside of the carousel
+.molecules__brand-item{
+  .card__inner{
+    height: 470px;
+
+    @include mq-tablet {
+      height: 370px;
+    }
+    background-color: #2A4E6D;
+    padding: 60px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    @include mq-tablet {
+      padding: 40px 90px;
+    }
+  }
+  .atom__text, .atoms__link-field{
+    color: $color-primary-white;
+  }
+  .card__name{
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    @include mq-tablet {
+      font-size: 25px;
+    }
+  }
+  .card__title{
+    font-size: 64px;
+    @include mq-tablet {
+      font-size: 51px;
+    }
+  }
+  .card__description{
+    font-size: 24px;
+    width: 75%;
+    @include mq-tablet {
+      font-size: 19px;
+    }
+
+  }
+}
+
+// @media #{$device} {
+//   .molecules__brand-item{
+//     .card__inner{
+//       .card__title {
+//         font-size: 50px;
+//       }
+//       .card__name {
+//         font-size: 28px;
+//       }
+//     }
+//   }
+// }

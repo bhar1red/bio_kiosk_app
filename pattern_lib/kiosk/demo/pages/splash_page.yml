@@ -1,0 +1,7 @@
+model:
+  tab:
+    model: '{{ YamlLoader(kiosk/demo/molecules/tab_menu_splash.yml) }}'
+    tpl: '{{ TplNS(kiosk.molecules.tab_menu) }}'
+  main:
+    model: '{{ YamlLoader(kiosk/demo/organisms/splash_carousel.yml) }}'
+    tpl: '{{ TplNS(kiosk.organisms.splash_carousel) }}'

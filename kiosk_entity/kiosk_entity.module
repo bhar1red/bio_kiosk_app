@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Code for the Kiosk Entity feature.
+ */
+
+require_once DRUPAL_ROOT . '/sites/all/modules/custom/dcf_core/autoloader.php';
+
+autoloader(array( 
+      __DIR__ . '/src/Migrate', 
+), false); 
+
+include_once 'kiosk_entity.features.inc';
+include_once 'kiosk_entity.migrate_api.inc';
+
+function kiosk_entity_form_alter(&$form, &$form_state, $form_id) {
+  switch($form_id){
+    case 'patient_group_node_form':
+      if (isset($form['body']['und'][0]['summary']['#attached'])) {
+        unset($form['body']['und'][0]['summary']['#attached']);
+      }
+      break;
+  }
+}

@@ -1,0 +1,7 @@
+model:
+  name:
+    value: 'App Title 1'
+  title:
+    value: 'Lorem ipsum dolor.'
+  description:
+    value: 'Curabitur congue tincidunt congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas vel mattis odio. Suspendisse ipsum massa, bibendum id turpis id, tincidunt consectetur tellus.'

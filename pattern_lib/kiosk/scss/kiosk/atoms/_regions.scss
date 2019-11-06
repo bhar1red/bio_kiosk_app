@@ -1,0 +1,35 @@
+
+// *************** everything below belongs in the _item_regions.sccss partial but I couldn't get it to load so it lives here for now. TODO: refactor into the correct partial - Fitz
+
+// the wrapper around the header, nav bar, and breadcrumbs
+  .region__top{
+    position: fixed;
+    z-index: 15;
+    width: 100%;
+    max-width: $page-max-width;
+    background-color: #fff;
+}
+
+
+// the container around the breadcrumbs
+.region__breadcrumb{
+    height: 120px;
+    @include mq-tablet { height: 90px; }
+    @include mq-phone { height: 50px; }
+}
+
+
+// not the header in the traditional sense but the header item right below the nav/breadcrumbs
+// usually houses the carousel
+.region__header{
+    position: fixed;
+    z-index: 14;
+    width: 100%;
+    max-width: $page-max-width;
+    top: 172px;
+    background-color: #fff;
+    @include mq-tablet {
+      position: relative;
+      top: 142px;
+    }
+}

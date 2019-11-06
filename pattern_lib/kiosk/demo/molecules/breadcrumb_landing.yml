@@ -1,0 +1,7 @@
+model:
+  back_link:
+    url: '/kiosk/demo/splash'
+    title: 'Back'
+  help_link:
+    url: '#'
+    title: 'Help'

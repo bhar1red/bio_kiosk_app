@@ -1,0 +1,2187 @@
+.shadow {
+  box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.5);
+}
+
+.shadow.orange-skin {
+  box-shadow: 0px 20px 20px -20px rgba(225, 112, 30, 0.8);
+}
+
+.shadow.teal-skin {
+  box-shadow: 0px 20px 20px -20px rgba(35, 142, 161, 0.8);
+}
+
+.shadow.green-skin {
+  box-shadow: 0px 20px 20px -20px rgba(70, 142, 47, 0.8);
+}
+
+.shadow.purple-skin {
+  box-shadow: 0px 20px 20px -20px #4A186E;
+}
+
+.shadow.shadow--up-slate {
+  border-bottom: 1px solid #A4B6C6;
+  box-shadow: inset 0 -20px 20px -20px #A4B6C6;
+  box-shadow: inset 0px -9px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@font-face {
+  font-family: "Klavika-Regular";
+  src: url("/sites/all/themes/bio/fonts/Klavika/Klavika-Regular.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+.kiosk-app {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+.kiosk-app {
+  color: #4A4A4A;
+}
+
+.kiosk-app h1 {
+  color: inherit;
+}
+
+.kiosk-app h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 30px 0 20px;
+}
+
+.kiosk-app p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 767px) {
+  .ut-hidden-phone {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .ut-hidden-tablet {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1081px) {
+  .ut-hidden-kiosk {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1082px) {
+  .ut-hidden-desktop {
+    display: none;
+  }
+}
+
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+}
+
+.modal .modal-content, .modal .modal-time-out {
+  width: 600px;
+  height: 600px;
+  text-align: center;
+  background-color: #15315E;
+  border-radius: 0px;
+  padding: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-content, .modal .modal-time-out {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+.modal .modal-header {
+  border-bottom: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-header {
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+  }
+}
+
+.modal .modal-header .close {
+  height: 16px;
+  width: 16px;
+  line-height: 0;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 0;
+  opacity: 1;
+}
+
+.modal div.modal-body {
+  height: 500px;
+  width: 500px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .modal div.modal-body {
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+  }
+}
+
+.region__top {
+  position: fixed;
+  z-index: 15;
+  width: 100%;
+  max-width: 1260px;
+  background-color: #fff;
+}
+
+.region__breadcrumb {
+  height: 120px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .region__breadcrumb {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .region__breadcrumb {
+    height: 50px;
+  }
+}
+
+.region__header {
+  position: fixed;
+  z-index: 14;
+  width: 100%;
+  max-width: 1260px;
+  top: 172px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .region__header {
+    position: relative;
+    top: 142px;
+  }
+}
+
+.molecules__contact-item .card__inner {
+  background-image: url(../..//..//..//kiosk/images/contact-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 280px;
+  height: 224px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__contact-item .card__inner {
+    margin-top: 8px;
+  }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1081px) {
+  .molecules__contact-item .card__inner {
+    width: 250px;
+    height: 200px;
+  }
+}
+
+.molecules__contact-item .card__inner .circle__onsite {
+  height: 100px;
+  width: 100px;
+  background-color: #77C667;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+}
+
+@media screen and (max-width: 1079px) {
+  .molecules__contact-item .card__inner .circle__onsite {
+    border-radius: 0%;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+  }
+  .molecules__contact-item .card__inner .circle__onsite br {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__contact-item .card__inner .circle__onsite {
+    height: 50px;
+    width: 158px;
+    border-radius: 4px;
+    left: 6px;
+    top: -34px;
+  }
+}
+
+.molecules__contact-item .card__inner .contact__name {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.molecules__contact-item .card__inner .contact__email, .molecules__contact-item .card__inner .contact__phone {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  display: none;
+  word-break: break-all;
+  padding: 0 15px;
+}
+
+.molecules__contact-item .card__inner .contact__email a, .molecules__contact-item .card__inner .contact__email a:hover, .molecules__contact-item .card__inner .contact__email a:focus, .molecules__contact-item .card__inner .contact__phone a, .molecules__contact-item .card__inner .contact__phone a:hover, .molecules__contact-item .card__inner .contact__phone a:focus {
+  color: #FFFFFF;
+}
+
+.molecules__contact-item .card__inner:hover {
+  cursor: pointer;
+}
+
+.molecules__contact-item .card__inner:hover .contact__email, .molecules__contact-item .card__inner:hover .contact__phone {
+  display: block;
+}
+
+@media screen and (max-width: 1079px) {
+  .molecules__contact-item .card__inner {
+    width: 100%;
+  }
+  .molecules__contact-item .card__inner .atom__text {
+    padding: 0 20px;
+    word-wrap: break-word;
+  }
+}
+
+.molecules__logo-item {
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 6px;
+}
+
+.molecules__logo-item .card__logo {
+  display: inline-block;
+  border-radius: 100px;
+  width: 210px;
+  height: 210px;
+  margin-top: 10px;
+}
+
+.molecules__logo-item .card__logo a {
+  display: inline-block;
+  position: relative;
+  height: 210px;
+  width: 210px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.molecules__logo-item .card__logo a .animation__wrapper {
+  position: relative;
+  width: 205px;
+  height: 205px;
+}
+
+.molecules__logo-item .card__logo a img {
+  width: 100%;
+  height: 100%;
+  border-radius: 120px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.molecules__logo-item .card__link {
+  padding-top: 10px;
+  font-size: 20px;
+  line-height: 16px;
+}
+
+.molecules__logo-item .card__link a {
+  text-decoration: none;
+  color: #4A4A4A;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.molecules__logo-item .card__logo {
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.molecules__logo-item.active .card__logo {
+  box-shadow: 0 3px 10px #0f2e5a;
+  border: 3px solid #4f6e9a;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 768px) {
+  .molecules__logo-item {
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  .molecules__logo-item .card__logo {
+    border-radius: 85px;
+    width: 170px;
+    height: 170px;
+  }
+  .molecules__logo-item .card__logo a {
+    border-radius: 85px;
+    width: 170px;
+    height: 170px;
+  }
+  .molecules__logo-item .card__logo a .animation__wrapper {
+    border-radius: 85px;
+    width: 170px;
+    height: 170px;
+  }
+  .molecules__logo-item .card__logo a img {
+    border-radius: 85px;
+  }
+}
+
+.molecules__brand-item .card__inner {
+  height: 470px;
+  background-color: #2A4E6D;
+  padding: 60px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__brand-item .card__inner {
+    height: 370px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__brand-item .card__inner {
+    padding: 40px 90px;
+  }
+}
+
+.molecules__brand-item .atom__text, .molecules__brand-item .atoms__link-field {
+  color: #FFFFFF;
+}
+
+.molecules__brand-item .card__name {
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__brand-item .card__name {
+    font-size: 25px;
+  }
+}
+
+.molecules__brand-item .card__title {
+  font-size: 64px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__brand-item .card__title {
+    font-size: 51px;
+  }
+}
+
+.molecules__brand-item .card__description {
+  font-size: 24px;
+  width: 75%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__brand-item .card__description {
+    font-size: 19px;
+  }
+}
+
+.molecules__overview-item {
+  max-width: 1260px;
+}
+
+.molecules__overview-item .card__inner {
+  height: 470px;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__overview-item .card__inner {
+    height: 370px;
+  }
+}
+
+.molecules__overview-item .card__inner > * {
+  z-index: 2;
+  position: relative;
+}
+
+.molecules__overview-item .card__inner:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #FFF 0%, #FFF 100%);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.molecules__overview-item .card__main {
+  padding-left: 200px;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__overview-item .card__main {
+    padding: 20px 34px 0 34px;
+  }
+}
+
+.molecules__overview-item .atom__text, .molecules__overview-item .atoms__link-field {
+  color: #3E678D;
+}
+
+.molecules__overview-item .card__logo {
+  margin-left: -20px;
+}
+
+.molecules__overview-item .card__logo img {
+  width: auto;
+  height: 120px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__overview-item .card__logo img {
+    height: 96px;
+  }
+}
+
+.molecules__overview-item .card__description {
+  font-size: 24px;
+  width: 60%;
+  height: 100px;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__overview-item .card__description {
+    margin: 16px 0;
+    font-size: 19px;
+    height: 108px;
+  }
+}
+
+.molecules__overview-item .card__cta-link {
+  position: absolute;
+  bottom: -80px;
+  left: 200px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__overview-item .card__cta-link {
+    bottom: -56px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__overview-item .card__cta-link {
+    text-align: center;
+    left: 0px;
+    width: 100%;
+  }
+}
+
+.molecules__overview-item .card__cta-link .atoms__link-field {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3E678D;
+  border: 2px solid #3E678D;
+  text-transform: uppercase;
+  padding: 35px 70px;
+  letter-spacing: 2px;
+  background-color: #FFFFFF;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__overview-item .card__cta-link .atoms__link-field {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+}
+
+.molecules__overview-item .card__cta-link .atoms__link-field:focus {
+  outline: none;
+}
+
+.molecules__qrscanner_modal .modal-time-out {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.molecules__qrscanner_modal .modal-time-out p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__qrscanner_modal .modal-time-out p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+.molecules__qrscanner_modal .modal-time-out .btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.molecules__qrscanner_modal .modal-time-out .btn-group .btn {
+  width: 45%;
+}
+
+.molecules__qrscanner_modal .modal-body {
+  /* Icons during Scan Progress */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.molecules__qrscanner_modal .modal-body .scan-load:before {
+  content: " ";
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  color: #000;
+  opacity: .7;
+  animation: rotate 0.8s infinite linear;
+  border: 12px solid #000;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.molecules__qrscanner_modal .modal-body .scan-progress:before {
+  content: "Scan Your Badge";
+  display: inline-block;
+  background-image: url(../images/webcam-icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 220px;
+  width: 250px;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  padding-top: 230px;
+}
+
+.molecules__qrscanner_modal .modal-body .scan-complete:before {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 900;
+  content: "\2713";
+  font-size: 200px;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -90px;
+  color: #468E2F;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__qrscanner_modal .error-validation {
+    margin-bottom: -24px;
+  }
+}
+
+#qr-scanner-scanning-window {
+  background: #fff;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#kiosk-scan-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type="text"] {
+  background-image: none;
+  padding: 28px;
+  max-height: 75px;
+  width: calc(100% - 80px);
+  display: inline-block;
+  border-width: 0px;
+  vertical-align: middle;
+  border-radius: 0;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  input[type="text"] {
+    width: calc(100% - 56px);
+    font-size: 16px;
+    padding: 20px;
+    max-height: 56px;
+  }
+}
+
+::placeholder {
+  color: #8A8A8C;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #8A8A8C;
+}
+
+.error-validation, .kiosk-app .error-validation {
+  color: #E1701E;
+}
+
+.error-validation > p, .kiosk-app .error-validation > p {
+  margin: .25em auto auto 0;
+}
+
+@media screen and (max-width: 767px) {
+  .error-validation > p, .kiosk-app .error-validation > p {
+    font-size: 16px;
+  }
+}
+
+.button--edit-kiosk-email {
+  display: inline-block;
+  vertical-align: middle;
+  height: 75px;
+  width: 80px;
+  margin-left: -4px;
+  color: #15315E;
+  background: #fff;
+  border-width: 0px;
+}
+
+.button--edit-kiosk-email i {
+  font-size: 24px;
+  margin-top: -4px;
+}
+
+@media screen and (max-width: 767px) {
+  .button--edit-kiosk-email {
+    height: 56px;
+    width: 56px;
+  }
+  .button--edit-kiosk-email i {
+    font-size: 16px;
+    margin-top: -2px;
+  }
+}
+
+#qr-scanner-connect-with-us {
+  background-color: #E1701E;
+  color: #FFFFFF;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  #qr-scanner-connect-with-us {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.qr-scanner-look-at-other-organizations {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  text-align: left;
+}
+
+.qr-scanner-look-at-other-organizations a {
+  color: #FFFFFF;
+}
+
+.qr-scanner-look-at-other-organizations a:hover {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+  .qr-scanner-look-at-other-organizations {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 16px;
+    font-size: 14px !important;
+  }
+}
+
+#modal-timeout-continue-yes {
+  background-color: #E1701E;
+  color: #FFFFFF;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  #modal-timeout-continue-yes {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+#modal-timeout-continue-no {
+  background-color: #FFFFFF;
+  color: #E1701E;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  #modal-timeout-continue-no {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+#qr-scanner-confirmation {
+  background: transparent;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#qr-scanner-confirmation .orange-bar {
+  border-bottom: 1px solid #E1701E;
+  width: 70%;
+  height: 0;
+  margin: 30px 0;
+}
+
+@media screen and (max-width: 767px) {
+  #qr-scanner-confirmation .orange-bar {
+    width: 100%;
+    margin: 24px 0;
+  }
+}
+
+#qr-scanner-confirmation .section-related .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  #qr-scanner-confirmation .section-related .title {
+    font-size: 18px;
+  }
+}
+
+#qr-scanner-confirmation .section-related .molecules__logo-item .card__logo, #qr-scanner-confirmation .section-related .molecules__logo-item .card__logo a {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+#qr-scanner-confirmation .section-related .molecules__logo-item .card__logo a img {
+  z-index: 2;
+}
+
+#qr-scanner-confirmation .section-related .molecules__logo-item .card__link a {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: none;
+}
+
+#qr-scanner-confirmation h3 {
+  text-transform: uppercase;
+  color: #4A4A4A;
+  margin: 0;
+  padding-top: 360px;
+  position: static;
+}
+
+#qr-scanner-confirmation h3:after {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 900;
+  content: "\2713";
+  font-size: 200px;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -90px;
+  color: #468E2F;
+}
+
+.h3--qr-scanner-text {
+  color: #FFFFFF;
+  margin: -1em auto 1em 0;
+}
+
+@media screen and (max-width: 767px) {
+  .h3--qr-scanner-text {
+    margin-top: 1em;
+    font-size: 22px;
+  }
+}
+
+.qr-scanner-text {
+  color: #FFFFFF;
+}
+
+#qr-scanner-text-confirmation {
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+  #qr-scanner-text-confirmation p {
+    font-size: 16px;
+  }
+}
+
+.qr-scanner-failure {
+  text-align: center;
+}
+
+.qr-scanner-failure h2 {
+  color: #E1701E;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  .qr-scanner-failure h2 {
+    font-size: 24px;
+  }
+}
+
+.qr-scanner-failure .fa-exclamation-circle {
+  font-size: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .qr-scanner-failure .fa-exclamation-circle {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h2.modal__header {
+    font-size: 20px;
+  }
+}
+
+.molecules__splash-pane .background__video {
+  width: 100%;
+  z-index: -100;
+  position: absolute;
+}
+
+.molecules__splash-pane .card__inner {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: relative;
+  font-family: "Klavika-Regular",sans-serif;
+  height: calc(100vh - 60px);
+  padding: 0 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #FFFFFF;
+}
+
+.molecules__splash-pane .card__inner > * {
+  z-index: 2;
+  position: relative;
+}
+
+.molecules__splash-pane .card__inner:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #0A243D 0%, #1A3D5D 100%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.molecules__splash-pane .card__inner.video-bg > * {
+  z-index: 2;
+  position: relative;
+}
+
+.molecules__splash-pane .card__inner.video-bg:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #0A243D 0%, #1A3D5D 100%);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__splash-pane .card__inner {
+    padding: 0 34px;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .molecules__splash-pane .card__inner {
+    justify-content: space-around;
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .molecules__splash-pane .card__inner {
+    justify-content: space-around;
+  }
+}
+
+.molecules__splash-pane .card__inner a {
+  color: #FFFFFF;
+}
+
+.molecules__splash-pane .card__inner .card__cta-link a {
+  display: block;
+  text-align: center;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-property: transform;
+  -webkit-transition-property: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  padding: 95px;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+.molecules__splash-pane .card__inner .card__cta-link a:hover, .molecules__splash-pane .card__inner .card__cta-link a:active, .molecules__splash-pane .card__inner .card__cta-link a:focus {
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+}
+
+.molecules__splash-pane .card__inner .card__cta-link a:hover, .molecules__splash-pane .card__inner .card__cta-link a:active, .molecules__splash-pane .card__inner .card__cta-link a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__splash-pane .card__inner .card__cta-link a {
+    padding: 36px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__splash-pane .card__inner .card__cta-link a {
+    padding: 46px;
+    font-size: 32px;
+  }
+}
+
+.molecules__splash-pane .card__inner.purple-skin .card__cta-link {
+  background-color: #4A186E;
+}
+
+.molecules__splash-pane .card__inner.orange-skin .card__cta-link {
+  background-color: #E1701E;
+}
+
+.molecules__splash-pane .card__inner.teal-skin .card__cta-link {
+  background-color: #238EA1;
+}
+
+.molecules__splash-pane .card__inner.green-skin .card__cta-link {
+  background-color: #468E2F;
+}
+
+.molecules__splash-pane .card__inner .card__name {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__splash-pane .card__inner .card__name {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+}
+
+.molecules__splash-pane .card__inner .card__title {
+  font-size: 75px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__splash-pane .card__inner .card__title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+}
+
+.molecules__splash-pane .card__inner .card__description {
+  font-size: 20px;
+  width: 80%;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__splash-pane .card__inner .card__description {
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+.glow-out {
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-property: transform;
+  -webkit-transition-property: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.glow-in {
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+}
+
+.molecules__tab-menu .card__inner {
+  font-family: "Klavika-Regular",sans-serif;
+}
+
+.molecules__tab-menu .card__inner a:hover {
+  text-decoration: none;
+}
+
+.molecules__tab-menu .card__inner .tab__container {
+  margin: 0;
+}
+
+.molecules__tab-menu .card__inner .tab__item {
+  margin: 0;
+  padding: 0;
+}
+
+.molecules__tab-menu .card__inner .tab__item a {
+  color: #FFFFFF;
+}
+
+.molecules__tab-menu .card__inner .tab__item.purple-skin {
+  background-color: #4A186E;
+}
+
+.molecules__tab-menu .card__inner .tab__item.purple-skin.active .arrow-down {
+  background-color: #4A186E;
+}
+
+.molecules__tab-menu .card__inner .tab__item.orange-skin {
+  background-color: #E1701E;
+}
+
+.molecules__tab-menu .card__inner .tab__item.orange-skin.active .arrow-down {
+  background-color: #E1701E;
+}
+
+.molecules__tab-menu .card__inner .tab__item.teal-skin {
+  background-color: #238EA1;
+}
+
+.molecules__tab-menu .card__inner .tab__item.teal-skin.active .arrow-down {
+  background-color: #238EA1;
+}
+
+.molecules__tab-menu .card__inner .tab__item.green-skin {
+  background-color: #468E2F;
+}
+
+.molecules__tab-menu .card__inner .tab__item.green-skin.active .arrow-down {
+  background-color: #468E2F;
+}
+
+.molecules__tab-menu .card__inner .tab__item.active .arrow-down {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  height: 30px;
+  width: 100%;
+  z-index: 2;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .molecules__tab-menu .card__inner .tab__item.active .arrow-down {
+    display: none;
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .molecules__tab-menu .card__inner .tab__item.active .arrow-down {
+    display: none;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .molecules__tab-menu .card__inner .tab__item.active {
+    box-shadow: inset 0 0 7px 7px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .molecules__tab-menu .card__inner .tab__item.active {
+    box-shadow: inset 0 0 7px 7px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.molecules__tab-menu .card__inner .tab__link {
+  display: block;
+  height: 60px;
+  padding: 0 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.molecules__tab-menu .card__inner .tab__link .atoms__link-field {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  width: calc(100% - 30px);
+  transform: translateY(-50%);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__tab-menu .card__inner .tab__item a {
+    font-size: 1.6vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__tab-menu .card__inner .tab__item.active .arrow-down {
+    top: 14px;
+    left: 20px;
+    height: 12px;
+    width: 12px;
+    z-index: 2;
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    background: white !important;
+  }
+  .molecules__tab-menu .card__inner .tab__item.active .tab__link {
+    font-size: 12px;
+  }
+  .molecules__tab-menu .card__inner .tab__link {
+    height: 40px;
+    padding: 0;
+    font-size: 10px;
+    box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  .molecules__tab-menu .card__inner .tab__link a {
+    padding-left: 34px;
+  }
+}
+
+.molecules__breadcrumb-bar .card__inner .breadcrumb__item {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .molecules__breadcrumb-bar .card__inner .breadcrumb__item {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__breadcrumb-bar .card__inner .breadcrumb__item {
+    margin-top: 16px;
+  }
+}
+
+.molecules__breadcrumb-bar .card__inner .breadcrumb__item a {
+  text-transform: uppercase;
+  color: #3E678D;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__breadcrumb-bar .card__inner .breadcrumb__item a {
+    font-size: 14px;
+  }
+}
+
+.molecules__breadcrumb-bar .card__inner .card__back-link {
+  float: left;
+}
+
+.molecules__breadcrumb-bar .card__inner .card__back-link a {
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__breadcrumb-bar .card__inner .card__back-link a {
+    margin-left: 48px;
+  }
+}
+
+.molecules__breadcrumb-bar .card__inner .card__home-link {
+  float: right;
+}
+
+.molecules__breadcrumb-bar .card__inner .card__home-link a {
+  margin-right: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__breadcrumb-bar .card__inner .card__home-link a {
+    margin-right: 48px;
+  }
+}
+
+.molecules__breadcrumb-bar .card__inner .card__home-link i {
+  font-size: 22px;
+  margin-left: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__breadcrumb-bar .card__inner .card__home-link i {
+    font-size: 16px;
+  }
+}
+
+.molecules__kiosk-timeout p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #FFFFFF;
+}
+
+.molecules__kiosk-timeout .btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.molecules__kiosk-timeout .btn-group .btn {
+  width: 45%;
+}
+
+.molecules__kiosk-timeout .btn-primary {
+  background-color: #E1701E;
+  color: #FFFFFF;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__kiosk-timeout .btn-primary {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.molecules__kiosk-timeout .btn-secondary {
+  background-color: #FFFFFF;
+  color: #E1701E;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .molecules__kiosk-timeout .btn-secondary {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.molecules__kiosk-timeout .modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.organisms__item-carousel {
+  width: 100%;
+}
+
+.organisms__item-carousel .card__inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.organisms__item-carousel .card__inner .slick__nav {
+  position: absolute;
+  z-index: 99;
+}
+
+@media screen and (max-width: 767px) {
+  .organisms__item-carousel .card__inner .slick__nav {
+    display: none;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav button {
+  background-color: transparent;
+  border: none;
+  color: #3E678D;
+  font-size: 50px;
+  height: 40px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav button {
+    height: 50px;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav button:focus, .organisms__item-carousel .card__inner .slick__nav button:active {
+  border: none;
+  outline: none;
+}
+
+.organisms__item-carousel .card__inner .slick__nav button i {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.organisms__item-carousel .card__inner .slick__nav button i:focus, .organisms__item-carousel .card__inner .slick__nav button i:active {
+  border: none;
+  outline: none;
+}
+
+.organisms__item-carousel .card__inner .slick__nav.slick__prev {
+  top: 0;
+  left: -350px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav.slick__prev {
+    left: -250px;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav.slick__next {
+  top: 0;
+  right: -350px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav.slick__next {
+    right: -250px;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav .circle {
+  height: 510px;
+  width: 510px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-top: -25px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav .circle {
+    height: 400px;
+    width: 400px;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav .circle__left {
+  justify-content: flex-end;
+}
+
+.organisms__item-carousel .card__inner .slick__nav .circle__left button {
+  margin-right: 40px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav .circle__left button {
+    margin-right: 0px;
+  }
+}
+
+.organisms__item-carousel .card__inner .slick__nav .circle__right {
+  justify-content: flex-start;
+}
+
+.organisms__item-carousel .card__inner .slick__nav .circle__right button {
+  margin-left: 40px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__nav .circle__right button {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .organisms__item-carousel .card__inner .slick__container {
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .organisms__item-carousel .card__inner .slick__container {
+    display: none;
+  }
+}
+
+.organisms__item-grid .col-sm-4 {
+  padding-left: 0;
+}
+
+.organisms__item-grid .col-sm-3 {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.organisms__splash-carousel .card__inner .splash__item {
+  height: calc(100vh - 60px);
+}
+
+.region__top {
+  position: fixed;
+  z-index: 15;
+  width: 100%;
+  max-width: 1260px;
+  background-color: #fff;
+}
+
+.region__breadcrumb {
+  height: 120px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .region__breadcrumb {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .region__breadcrumb {
+    height: 50px;
+  }
+}
+
+.region__header {
+  position: fixed;
+  z-index: 14;
+  width: 100%;
+  max-width: 1260px;
+  top: 172px;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .region__header {
+    position: relative;
+    top: 142px;
+  }
+}
+
+@media screen and (min-width: 1082px) {
+  .region__header {
+    position: relative;
+  }
+}
+
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+}
+
+.modal .modal-content, .modal .modal-time-out {
+  width: 600px;
+  height: 600px;
+  text-align: center;
+  background-color: #15315E;
+  border-radius: 0px;
+  padding: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-content, .modal .modal-time-out {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+.modal .modal-header {
+  border-bottom: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-header {
+    top: 0px;
+    right: 0px;
+    z-index: 2;
+  }
+}
+
+.modal .modal-header .close {
+  height: 16px;
+  width: 16px;
+  line-height: 0;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 0;
+  opacity: 1;
+}
+
+.modal .modal-body {
+  height: auto;
+  width: 500px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .modal .modal-body {
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+  }
+}
+
+.pages__org-detail .button--scan {
+  display: block;
+  text-align: center;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-property: transform;
+  -webkit-transition-property: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  background-color: #E1701E;
+  color: #FFFFFF;
+  padding: 35px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.pages__org-detail .button--scan:hover, .pages__org-detail .button--scan:active, .pages__org-detail .button--scan:focus {
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+}
+
+.pages__org-detail .button--scan:hover, .pages__org-detail .button--scan:active, .pages__org-detail .button--scan:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .button--scan {
+    padding: 15px;
+    font-size: 22px;
+  }
+}
+
+.pages__org-detail .button--scan-top {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .pages__org-detail .button--scan-bottom {
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .button--scan-bottom {
+    margin-top: 30px;
+  }
+}
+
+.pages__org-detail .button--email i {
+  margin-left: 4px;
+}
+
+.pages__org-detail .page__inner {
+  padding: 0 0 30px 0 !important;
+}
+
+.pages__org-detail .page__inner .region__hero {
+  position: relative;
+}
+
+.pages__org-detail .page__inner .region__hero .region__inner {
+  height: 400px;
+  background-color: white !important;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.pages__org-detail .page__inner .region__hero .region__inner > * {
+  z-index: 2;
+  position: relative;
+}
+
+.pages__org-detail .page__inner .region__hero .region__inner:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #FFF 0%, #FFF 100%);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .page__inner .region__hero .region__inner {
+    height: auto;
+  }
+}
+
+.pages__org-detail .page__inner .region__hero .org__overview {
+  width: 70%;
+  margin: 0 15%;
+  font-size: 24px;
+  color: #3E678D;
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .page__inner .region__hero .org__overview {
+    font-size: 22px;
+    margin: 0 34px;
+    padding: 20px 20px 40px 0;
+    width: 90%;
+  }
+}
+
+.pages__org-detail .page__inner .region__hero .org__icon {
+  margin: 10px auto 30px -30px;
+  padding-top: 30px;
+}
+
+.pages__org-detail .page__inner .region__hero .org__icon img {
+  width: auto;
+  height: 150px;
+}
+
+.pages__org-detail .page__inner .region__hero .org__summary {
+  width: 70%;
+  height: 140px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .pages__org-detail .page__inner .region__hero .org__summary {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .page__inner .region__hero .org__summary {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.pages__org-detail .region__main {
+  width: 80%;
+  margin: auto;
+  margin-top: 780px;
+}
+
+@media screen and (min-width: 1082px) {
+  .pages__org-detail .region__main {
+    margin-top: 220px;
+  }
+}
+
+.pages__org-detail h2.atoms__label, .pages__org-detail h4 {
+  font-family: "Klavika-Regular",sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 50px 0;
+}
+
+.pages__org-detail .region__popup {
+  clear: both;
+}
+
+.pages__org-detail .org__contact .organisms__item-grid {
+  margin-top: 60px;
+}
+
+.pages__org-detail .org__home {
+  width: 70%;
+  padding: 10px 0;
+  display: inline-block;
+  margin: 10px 0 0;
+  color: #005699;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pages__org-detail .org__home i {
+  padding-right: 6px;
+  color: #005699;
+}
+
+.pages__org-detail .org__mailto-top {
+  width: 30%;
+  text-transform: uppercase;
+  float: right;
+  text-align: right;
+  padding: 10px 0;
+  display: inline-block;
+  margin: 10px 0 0;
+  color: #005699;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pages__org-detail .org__mailto-top i {
+  padding-right: 6px;
+  color: #005699;
+}
+
+.pages__org-detail .org__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #4A4A4A;
+  text-transform: uppercase;
+}
+
+.pages__org-detail .org__website,
+.pages__org-detail .org__description,
+.pages__org-detail .org__contact {
+  font-size: 20px;
+}
+
+.pages__org-detail .org__website .atoms__text ol li,
+.pages__org-detail .org__website .atoms__text ul li,
+.pages__org-detail .org__description .atoms__text ol li,
+.pages__org-detail .org__description .atoms__text ul li,
+.pages__org-detail .org__contact .atoms__text ol li,
+.pages__org-detail .org__contact .atoms__text ul li {
+  margin: 10px 0;
+  line-height: 28px;
+}
+
+.pages__org-detail .org__website .atoms__text ol,
+.pages__org-detail .org__description .atoms__text ol,
+.pages__org-detail .org__contact .atoms__text ol {
+  counter-reset: item;
+  padding-left: 0;
+}
+
+.pages__org-detail .org__website .atoms__text ol > li,
+.pages__org-detail .org__description .atoms__text ol > li,
+.pages__org-detail .org__contact .atoms__text ol > li {
+  padding: 0 0 0 2em;
+  text-indent: -2em;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+.pages__org-detail .org__website .atoms__text ol > li:before,
+.pages__org-detail .org__description .atoms__text ol > li:before,
+.pages__org-detail .org__contact .atoms__text ol > li:before {
+  padding-right: 22px;
+  font-weight: 700;
+  text-align: right;
+  content: counter(item) ".";
+}
+
+.pages__org-detail .org__website h4 {
+  margin-bottom: 10px;
+}
+
+.pages__org-detail .org__contact {
+  text-align: left;
+}
+
+.pages__org-detail .org__contact .notes {
+  margin: 30px 0 20px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.pages__org-detail .org__contact .notes .atoms__icon-label i {
+  padding-right: 6px;
+  color: #7140B6;
+}
+
+.pages__org-detail .org__mailto-bottom {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pages__org-detail .org__mailto-bottom a {
+  color: #005699;
+  display: block;
+  width: 140px;
+  margin: auto;
+}
+
+.pages__org-detail .org__mailto-bottom a i {
+  width: 60px;
+  height: 60px;
+  margin: 15px auto;
+  border-radius: 30px;
+  padding: 16px;
+  color: white;
+  display: block;
+  background-color: #14A693;
+  border: 3px solid #ccc;
+}
+
+.pages__org-detail .org__mailto-bottom p {
+  text-transform: none;
+  padding: 5px;
+}
+
+.pages__org-detail .org__mailto-bottom.active, .pages__org-detail .org__home.active, .pages__org-detail .org__mailto-top.active {
+  -webkit-transition: width 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+}
+
+.pages__org-detail .org__mailto-bottom.active a, .pages__org-detail .org__home.active a, .pages__org-detail .org__mailto-top.active a {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .page__inner .region__header {
+    top: 192px;
+  }
+}
+
+@media screen and (max-width: 1079px) {
+  .pages__org-detail .page__inner .region__header {
+    position: relative;
+  }
+  .pages__org-detail .page__inner .region__main {
+    margin-top: 250px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-detail .page__inner .region__branding {
+    display: inline-block;
+    height: 80px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #F2F2F2;
+    text-align: center;
+  }
+  .pages__org-detail .page__inner .region__branding img {
+    width: auto;
+    height: 45px;
+  }
+  .pages__org-detail .page__inner .region__branding .branding__title {
+    color: #404046;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .pages__org-detail .page__inner .region__hero {
+    overflow: hidden;
+    background: none;
+    background-color: #FFFFFF;
+  }
+  .pages__org-detail .page__inner .region__hero .region__inner {
+    background-image: none;
+  }
+  .pages__org-detail .page__inner .region__hero .region__inner .org__icon {
+    height: 150px;
+    position: relative;
+  }
+  .pages__org-detail .page__inner .region__hero .region__inner .org__icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+  .pages__org-detail .region__inner .org__home {
+    width: 100%;
+    display: block;
+  }
+  .pages__org-detail .region__inner .org__mailto-top {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .pages__org-detail .region__inner .org__contact {
+    text-align: center;
+  }
+  .pages__org-detail .region__inner .org__contact .atoms__label {
+    margin-bottom: 10px;
+  }
+  .pages__org-detail .region__inner .org__contact .organisms__item-grid .col-xs-12 {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1081px) {
+  .pages__org-detail .region__inner .org__home {
+    padding: 10px 0;
+    display: inline-block;
+    margin: 10px 0 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .pages__org-detail .region__inner .org__home a {
+    color: #4A4A4A;
+  }
+  .pages__org-detail .region__inner .org__home i {
+    padding-right: 6px;
+    color: #4A4A4A;
+  }
+  .pages__org-detail .region__inner .org__mailto-top {
+    padding: 10px 0;
+    display: inline-block;
+    margin: 10px 0 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .pages__org-detail .region__inner .org__mailto-top a {
+    color: #4A4A4A;
+  }
+  .pages__org-detail .region__inner .org__mailto-top i {
+    padding-right: 6px;
+    color: #4A4A4A;
+  }
+  .pages__org-detail .org__website a {
+    color: #4A4A4A;
+    text-decoration: none;
+    pointer-events: none;
+  }
+  .pages__org-detail .org__mailto-bottom a {
+    color: #4A4A4A;
+  }
+}
+
+.pages__org-list .page__inner {
+  padding: 0;
+  background-color: #D9E0E7;
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1081px) {
+  .pages__org-list .page__inner {
+    min-height: 1920px;
+  }
+}
+
+.pages__org-list .region__hero {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-list .region__hero {
+    padding-top: 0px;
+  }
+}
+
+.pages__org-list .organisms__item-carousel .card__inner {
+  box-shadow: inset 0px -10px 5px 0px rgba(36, 68, 99, 0.25);
+}
+
+.pages__org-list .region__main {
+  padding-top: 670px;
+  padding-bottom: 300px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  z-index: 1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .pages__org-list .region__main {
+    padding-top: 170px;
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-list .region__main {
+    padding-top: 230px;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1082px) {
+  .pages__org-list .region__main {
+    padding-top: 220px;
+  }
+}
+
+.pages__org-list .region__main:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  background: linear-gradient(to top, #d9e0e7 0%, rgba(217, 224, 231, 0) 100%);
+}
+
+.pages__org-list .region__main .molecules__logo-item {
+  height: 292px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .pages__org-list .region__main .molecules__logo-item {
+    height: 272px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .pages__org-list .region__main .molecules__logo-item {
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
+}
+
+.phone-carousel-replacement {
+  background-image: url(../..//..//..//kiosk/images/contact-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 24px;
+  display: table-cell;
+  vertical-align: middle;
+  display: none;
+}
+
+.pages__splash .page__inner {
+  padding: 0;
+}

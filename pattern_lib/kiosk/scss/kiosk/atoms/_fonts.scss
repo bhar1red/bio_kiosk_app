@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Klavika-Regular";
+  src: url("/sites/all/themes/bio/fonts/Klavika/Klavika-Regular.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin kioskPrimaryFont {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;        
+}
+
+@mixin kioskSecondaryFont {
+  font-family: "Klavika-Regular",sans-serif;
+}
+
+.kiosk-app{
+  @include kioskPrimaryFont;
+}
+

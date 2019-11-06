@@ -1,0 +1,115 @@
+.organisms__splash-carousel {
+  .card__inner {
+    .splash__item {
+      height: calc(100vh - 60px);
+    }
+  }
+}
+
+
+
+// *************** everything below belongs in the _item_regions.sccss partial but I couldn't get it to load so it lives here for now. TODO: refactor into the correct partial - Fitz
+
+// the wrapper around the header, nav bar, and breadcrumbs
+  .region__top{
+    position: fixed;
+    z-index: 15;
+    width: 100%;
+    max-width: $page-max-width;
+    background-color: #fff;
+}
+
+
+// the container around the breadcrumbs
+.region__breadcrumb{
+    height: 120px;
+    @include mq-tablet { height: 90px; }
+    @include mq-phone { height: 50px; }
+}
+
+
+// not the header in the traditional sense but the header item right below the nav/breadcrumbs
+// usually houses the carousel
+.region__header{
+    position: fixed;
+    z-index: 14;
+    width: 100%;
+    max-width: $page-max-width;
+    top: 172px;
+    background-color: #fff;
+
+    @include mq-tablet {
+      position: relative;
+      top: 142px;
+    }
+
+    @include mq-desktop  {
+      position: relative;
+    }
+
+}
+
+
+
+
+// modal class used in various places. TODO: refactor into molecules partial
+.modal{
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	z-index: 999;
+	text-align: center;
+
+  // the "inner" container of modal
+  .modal-content, .modal-time-out{
+    width: 600px;
+    height: 600px;
+    text-align: center;
+    background-color: $color-secondary-blue;
+    border-radius: 0px;
+    padding: 50px;
+    @include mq-phone {
+      width: 300px;
+      height: auto;
+      padding: 10px;
+    }
+ }
+
+  // modal header inside modal-content
+  .modal-header {
+    border-bottom: none;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    @include mq-phone {
+      top: 0px;
+      right: 0px;
+      z-index: 2;
+    }
+
+    .close{
+        height: 16px;
+        width: 16px;
+        line-height: 0;
+        background-color: $color-primary-white;
+        border-radius: 10px;
+        margin-top: 0;
+        opacity: 1;
+    }
+  }
+
+  // content below header made to display table for vertical centering
+  .modal-body{
+    height: auto;
+    width: 500px;
+    @include mq-phone{
+      width: 300px;
+      height: 300px;
+      z-index: 1;
+    }
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+}

@@ -1,0 +1,15 @@
+model:
+  image:
+    src: '{{ URL(kiosk/images/demo/splash-bg.jpg) }}'
+    alt: 'Splash background'
+  name:
+    value: 'App Title 4'
+  title:
+    value: 'Phasellus ullamcorper.'
+  description:
+    value: 'Duis vel risus ex. Maecenas quis aliquet nulla. In sit amet justo ac lacus rhoncus imperdiet non nec neque. Pellentesque a tincidunt justo, imperdiet ornare nisl.'
+  cta_link:
+    url: '/patient-advocacy-connection'
+    title: 'Touch to Begin'
+  styles: 
+    - 'green-skin'

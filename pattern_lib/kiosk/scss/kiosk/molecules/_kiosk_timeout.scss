@@ -1,0 +1,27 @@
+.molecules__kiosk-timeout{
+  p{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: $color-primary-white;
+  }
+  .btn-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .btn {
+      width: 45%;
+    }
+  }
+  .btn-primary{
+    @include scanButton($color-skin-orange, $color-primary-white);
+  }
+
+  .btn-secondary{
+    @include scanButton($color-primary-white, $color-skin-orange);
+  }
+  .modal{
+	background-color: rgba(0,0,0,0.6);
+  }
+  
+}

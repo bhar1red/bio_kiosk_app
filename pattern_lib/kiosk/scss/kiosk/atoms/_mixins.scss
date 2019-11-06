@@ -1,0 +1,243 @@
+@mixin header($size: $brand-title, $weight: $font-bold-weight, $color: $color-primary-white) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin links() {
+  font-size: $font-size-link;
+  font-weight: $font-bold-weight;
+}
+@mixin breadcrumb-kiosk() {
+  padding: 10px 0;
+  display: inline-block;
+  margin: 10px 0 0;
+  @include links();
+  a {
+    color: $text-color;
+  }
+  i {
+    padding-right: 6px;
+    color: $text-color;
+  }
+}
+@mixin breadcrumb() {
+  padding: 10px 0;
+  display: inline-block;
+  margin: 10px 0 0;
+  color: $link-color;
+  @include links();
+  i {
+    padding-right: 6px;
+    color: $link-color;
+  }
+}
+
+@mixin circle-animation($color) {
+  .outer {
+    fill: url(#image);
+    stroke: $color;
+    stroke-width: 6;
+    stroke-dasharray: 615;
+    transition: stroke-dashoffset 1s;
+    -webkit-animation-play-state: running;
+  }
+  /* END Circle colors and graphic positions */
+  /* Set the initial values for the animation */
+  &.chart[data-percent='100'] .outer {
+    stroke-dashoffset: 0;
+    animation: highLight 2.5s infinite alternate;
+  }
+  /* Keyframes for the initial animation */
+  @keyframes highLight {
+    from {
+      stroke-dashoffset: 595;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@mixin branding-logo() {
+  display: inline-block;
+  height: 80px;
+  width: 100%;
+  padding-top: 10px;
+  background-color: #F2F2F2;
+  text-align: center;
+  img {
+    width: auto;
+    height: 45px;
+  }
+  .branding__title {
+    color: #404046;
+    font-weight: $font-bold-weight;
+    text-transform: uppercase;
+  }
+}
+
+@mixin tablet-size-logo() {
+  border-radius: 85px;
+  width: 170px;
+  height: 170px;
+}
+
+
+// not totally reworking this yet incase we need to come up with IE support - Fitz
+@mixin triangle-skin($color-skin,$triangle-height) {
+  background-color: $color-skin;
+  &.active .arrow-down{
+   //  border-top: $triangle-height solid $color-skin;
+   background-color: $color-skin;
+  }
+}
+
+@mixin glowIn(){
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+}
+@mixin glowOut(){
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-property: transform;
+  -webkit-transition-property: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+@mixin glow(){
+  @include glowOut;
+  &:hover, &:active, &:focus {
+    @include glowIn;
+  }
+}
+
+@mixin bgGradient($gradient, $opacity) {
+  & > * {
+    z-index: 2;
+    position: relative;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: $gradient;
+    opacity: $opacity;
+    z-index: 1;
+  }
+}
+
+@mixin ctaButton {
+  display: block;
+  text-align: center;
+  @include kioskPrimaryFont;
+  font-weight: bold;
+  text-transform: uppercase;
+  @include glow;
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+@mixin ctaSkin {
+  &.purple-skin {
+    .card__cta-link{
+      background-color: $color-skin-purple;
+    }
+  }
+  &.orange-skin {
+    .card__cta-link{
+      background-color: $color-skin-orange;
+    }
+  }
+  &.teal-skin {
+    .card__cta-link{
+      background-color: $color-skin-teal;
+    }
+  }
+  &.green-skin {
+    .card__cta-link{
+      background-color: $color-skin-green;
+    }
+  }
+}
+
+@mixin scanButton($bgColor, $color) {
+  background-color: $bgColor;
+  color: $color;
+  border: none;
+  padding: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  @include mq-phone {
+    font-size: 16px;
+    padding: 20px;
+
+  }
+}
+
+
+// ****************** Media queries as mixins *************** //
+@mixin mq-phone {
+  @media screen and (max-width: $screen-sm - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-tablet {
+  @media screen and (min-width: $screen-sm ) and (max-width: $screen-md - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-phone-and-tablet {
+  @media screen and (max-width: $screen-md - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-kiosk {
+  @media screen and (min-width: $screen-md) and (max-width: $screen-lg - 1px) {
+    @content;
+  }
+}
+
+@mixin mq-desktop {
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin mq-surface3 {
+  @media screen and (min-width: $screen-surface3) and (max-width: $screen-surface3 + 1px)  {
+    @content;
+  }
+}
+
+// targets MS IE 10 & 11 only
+@mixin mq-ie {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+  }
+}
+
+// targets MS Edge only
+@mixin mq-edge {
+  @supports (-ms-ime-align:auto) {
+      @content;
+  }
+}
+
+
+// ****************** MQ Utility classes.  *************** //
+.ut-hidden-phone {@include  mq-phone {display: none; }}
+.ut-hidden-tablet {@include  mq-tablet {display: none; }}
+.ut-hidden-kiosk {@include  mq-kiosk {display: none; }}
+.ut-hidden-desktop {@include  mq-desktop {display: none; }}
+

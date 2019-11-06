@@ -1,0 +1,21 @@
+.kiosk-app{
+  color: #4A4A4A;
+  h1{
+    color: inherit;
+  }
+  h4 {
+    font-size: $font-size-h4;
+    font-weight: $font-bold-weight;
+    margin: 30px 0 20px;
+  }
+  p {
+    font-size: $font-size-description;
+    font-weight: $font-normal-weight;
+    line-height: 1.6;
+  }
+}
+
+
+
+
+

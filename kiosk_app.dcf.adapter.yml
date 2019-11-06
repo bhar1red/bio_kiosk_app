@@ -1,0 +1,107 @@
+kiosk.adapter:
+  node_patient_group--org_detail_page:
+    mapper:
+      tab: '{{ Element(kiosk_domain_menu) }}'
+      breadcrumb: '{{ Element(breadcrumb_detail) }}'
+      hero_bg: '{{ Image(field_pg_hero_background,kiosk_hero_image) }}'
+      summary/value: '{{ Value(body, summary) }}'
+      logo: '{{ Image(field_pg_hero_logo,kiosk_hero_logo) }}'
+      title/value: '{{ Property(title) }}'
+      website/label: '{{ FieldLabel(field_pg_website) }}'
+      website/url: '{{ Value(field_pg_website,url) }}'
+      description/label: 'About Us'
+      description/value: '{{ Value(body) }}'
+      home/url: '/patient-advocacy-connection'
+      home/title: 'Back to all Patient Advocacy Groups'
+      mailto/title: 'Email to Me'
+      contact/label: 'Who Are We?'
+      contact/list: '{{ Element(contact_list) }}'
+      contact/notes: 'On-site at BIO2018'
+      badge_scan_popup: '{{ Element(badge_scan_popup) }}'
+      email_submit_popup: ' {{ Element(email_submit_popup) }} '
+      submit_mode: '{{ Variable(kiosk_app_submit_mode) }}'   
+      cta_label: 'Scan Badge to Connect '
+      timeout: '{{ Element(kiosk_timeout) }}'      
+  node_patient_group--badge_scan_popup:
+    mapper:
+      node_id:  '{{ Property(nid) }}'
+      title: '{{ Property(title) }}'
+      landing_link: ''
+      related_organizations: []    
+  paragraph_contact--contact_item:
+    mapper:
+      name/value: '{{ Value(field_rep_name) }}'
+      email/value: '{{ Value(field_rep_email) }}'
+      phone/value: '{{ Value(field_rep_phone) }}'
+      onsite/value: '{{ Value(field_rep_onsite) }}'
+  node_patient_group--item_grid:
+    mapper:
+      layout: 'col-sm-4 col-xs-12'
+      items: '{{ ElementList(field_pg_contact,paragraphs_item,contact_item,value) }}'      
+  node_patient_group--logo_item:
+    mapper:
+      logo: '{{ Image(field_pg_round_logo,kiosk_round_logo) }}'
+      target_link/title: '{{ Property(title) }}'
+      target_link/url: '' 
+  node_patient_group--overview_item:
+    mapper:
+      hero_bg: '{{ Image(field_pg_hero_background,kiosk_hero_image) }}'      
+      logo: '{{ Image(field_pg_hero_logo,kiosk_hero_logo) }}'
+      summary/value: '{{ Value(body,summary) }}'
+      target_link/title: 'Learn More'
+      target_link/url: ''
+  overview_patient_group--carousel:
+    mapper:
+      slider_list: []
+  list_patient_group--item_grid:
+    mapper:
+      layout: 'col-sm-3 col-xs-12'
+      items: []
+  taxonomy_kiosk_domain--brand_item:
+    mapper:
+      name/value: '{{ Property(name) }}'
+      title/value: '{{ Value(field_domain_caption) }}'
+      description/value: '{{ Property(description) }}'
+  landing_kiosk--splash_page:
+    mapper: 
+      tab: []
+      main: []
+  landing_kiosk--splash_menu:
+    mapper:
+      tabs: []
+  landing_kiosk--splash_main:
+    mapper:
+      items: []
+  taxonomy_kiosk_domain--splash_pane:
+    mapper:
+      video: ' {{ FileURL(field_background_video)  }} '
+      image: '{{ Image(field_domain_bg_image,kiosk_splash_bg) }}'
+      name/value: '{{ Property(name) }}'
+      title/value: '{{ Value(field_domain_caption) }}'
+      description/value: '{{ Property(description) }}'
+      cta_link/title: 'Touch to Begin'
+      styles: []
+  kiosk_domain--tab_menu:
+    mapper:
+      tabs: []
+  taxonomy_kiosk_domain--org_list_page:
+    mapper:
+      tab: '{{ Element(kiosk_domain_menu) }}'
+      breadcrumb: '{{ Element(breadcrumb_landing) }}'
+      hero: '{{ Element(org_overview_carousel) }}'
+      main: '{{ Element(org_logo_grid) }}'
+      timeout: '{{ Element(kiosk_timeout) }}'    
+  kiosk_landing--breadcrumb:
+    mapper:
+      back_link/url: '/kiosk/home'
+      back_link/title: 'Back'
+      home_link/url: '/kiosk/home'
+      home_link/title: 'Home'
+  kiosk_detail--breadcrumb:
+    mapper:
+      back_link/title: 'Back'
+      home_link/url: '/kiosk/home'
+      home_link/title: 'Home'
+  email_contact_list:
+    mapper:
+      items: []

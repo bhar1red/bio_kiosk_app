@@ -1,0 +1,111 @@
+kiosk.elements:
+  org_detail_page:
+    adapter: '{{ Adapter(node_patient_group--org_detail_page) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.pages.org_detail_page) }}'
+  contact_item:
+    adapter: '{{ Adapter(paragraph_contact--contact_item) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.contact_item) }}'
+  contact_list:
+    adapter: '{{ Adapter(node_patient_group--item_grid) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.organisms.item_grid) }}'
+  org_overview_carousel:
+    adapter: '{{ Adapter(overview_patient_group--carousel) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.organisms.item_carousel) }}'    
+  org_logo_grid:
+    adapter: '{{ Adapter(list_patient_group--item_grid) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.organisms.item_grid) }}'    
+  overview_item:
+    adapter: '{{ Adapter(node_patient_group--overview_item) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.overview_item) }}'
+  logo_item:
+    adapter: '{{ Adapter(node_patient_group--logo_item) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.logo_item) }}'
+  brand_item:
+    adapter: '{{ Adapter(taxonomy_kiosk_domain--brand_item) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.brand_item) }}'
+  badge_scan_popup:
+    adapter: '{{ Adapter(node_patient_group--badge_scan_popup) }}'    
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.badge_scan_popup) }}'
+  email_submit_popup:
+    adapter: '{{ Adapter(node_patient_group--badge_scan_popup) }}'    
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.email_submit_popup) }}'
+  splash_demo:
+    adapter: '{{ YamlLoader(kiosk/demo/pages/splash_page.yml) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.pages.splash_page) }}'
+  tab_menu_demo:
+    adapter: '{{ YamlLoader(kiosk/demo/molecules/tab_menu_detail.yml) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.tab_menu) }}'
+  breadcrumb_landing_demo:
+    adapter: '{{ YamlLoader(kiosk/demo/molecules/breadcrumb_landing.yml) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.breadcrumb_bar) }}'      
+  breadcrumb_detail_demo:
+    adapter: '{{ YamlLoader(kiosk/demo/molecules/breadcrumb_detail.yml) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.breadcrumb_bar) }}'      
+  detail_hero_demo:
+    adapter: '{{ YamlLoader(kiosk/demo/molecules/detail_hero.yml) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.detail_hero) }}'     
+  splash_home:
+    adapter: '{{ Adapter(landing_kiosk--splash_page) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.pages.splash_page) }}'     
+  splash_menu:
+    adapter:  '{{ Adapter(landing_kiosk--splash_menu) }}'
+    presenter: 
+      tpl: '{{ TplNS(kiosk.molecules.tab_menu) }}'
+  splash_main:
+    adapter: '{{ Adapter(landing_kiosk--splash_main) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.organisms.splash_carousel) }}'  
+  splash_pane:
+    adapter: '{{ Adapter(taxonomy_kiosk_domain--splash_pane) }}'
+    presenter: 
+      tpl: '{{ TplNS(kiosk.molecules.splash_pane) }}'
+  kiosk_domain_landing:
+    adapter: '{{ Adapter(taxonomy_kiosk_domain--org_list_page) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.pages.org_list_page) }}'
+  kiosk_domain_menu:
+    adapter:  '{{ Adapter(kiosk_domain--tab_menu) }}'
+    presenter: 
+      tpl: '{{ TplNS(kiosk.molecules.tab_menu) }}'
+  breadcrumb_landing:
+    adapter: '{{ Adapter(kiosk_landing--breadcrumb) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.breadcrumb_bar) }}'      
+  breadcrumb_detail:
+    adapter: '{{ Adapter(kiosk_detail--breadcrumb) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.breadcrumb_bar) }}'      
+  kiosk_timeout:
+    presenter:
+      tpl: '{{ TplNS(kiosk.molecules.kiosk_timeout) }}'       
+  email_to_user:
+    presenter:
+      tpl: '{{ TplNS(kiosk.emails.email_to_user) }}'       
+  email_to_org:
+    presenter:
+      tpl: '{{ TplNS(kiosk.emails.email_to_org) }}'       
+  email_contact_item:
+    adapter: '{{ Adapter(paragraph_contact--contact_item) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.emails.contact_item) }}'       
+  email_contact_list:
+    adapter: '{{ Adapter(email_contact_list) }}'
+    presenter:
+      tpl: '{{ TplNS(kiosk.emails.contact_list) }}'       
+    

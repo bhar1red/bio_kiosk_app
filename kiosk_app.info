@@ -1,0 +1,7 @@
+name = Kiosk App
+description = "Partner Group Kiosk App"
+package = Bio
+core = 7.x
+dependencies[] = dcf_core
+
+configure = admin/config/kiosk

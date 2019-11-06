@@ -1,0 +1,318 @@
+.molecules__qrscanner_modal{
+  .modal-time-out {
+    color: $color-primary-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p{
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 50px;
+      @include mq-phone {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      }
+    }
+    .btn-group{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .btn {
+        width: 45%;
+      }
+    }
+  }
+
+  .modal-body{
+    @keyframes rotate {
+      0%    { transform: rotate(0deg); }
+      100%  { transform: rotate(360deg); }
+    }
+    // spinner
+    /* Icons during Scan Progress */
+    .scan-load:before{
+      content: " ";
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      top: 50%;
+      left: 50%;
+      margin-top: -50px;
+      margin-left: -50px;
+      color: #000;
+      opacity: .7;
+      animation: rotate 0.8s infinite linear;
+      border: 12px solid #000;
+      border-right-color: transparent;
+      border-radius: 50%;
+    }
+    // webcam icon
+    .scan-progress:before {
+      content: "Scan Your Badge";
+      display: inline-block;
+      background-image: url(../images/webcam-icon.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 220px;
+      width: 250px;
+      transform: translate(-50%,-50%);
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      padding-top: 230px;
+    }
+
+    // check mark
+    .scan-complete:before{
+      display: inline-block;
+      font-style: normal;
+      font-weight: 900;
+      content: "\2713";
+      font-size: 200px;
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -90px;
+      color: $color-skin-green;
+    }
+  }
+
+  // special exception for the email error margin on phone
+  .error-validation {
+    @include mq-phone { margin-bottom: -24px; }
+  }
+}
+
+// the block that lets user take scan *******************
+#qr-scanner-scanning-window {
+  background: #fff;
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#kiosk-scan-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#kiosk-scanning-progress{}
+
+
+
+// the block that confirms email & other options ******************
+#qr-scanner-email-edit{}
+
+
+input[type="text"] {
+  background-image: none;
+  padding: 28px;
+  max-height: 75px;
+  width: calc(100% - 80px);
+  display: inline-block;
+  border-width: 0px;
+  vertical-align: middle;
+  border-radius: 0;
+  font-size: 24px;
+  @include mq-phone {
+     width: calc(100% - 56px);
+    font-size: 16px;
+    padding: 20px;
+    max-height: 56px;
+
+  }
+}
+
+::placeholder {
+  color: $color-form-placeholder;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: $color-form-placeholder;
+}
+
+.error-validation, .kiosk-app .error-validation{
+  color: $color-skin-orange;
+  > p {
+      margin: .25em auto auto 0;
+      @include mq-phone {font-size: 16px;}
+  }
+}
+
+
+// the "edit" button to the right in field
+.button--edit-kiosk-email{
+  display: inline-block;
+  vertical-align: middle;
+  height: 75px;
+  width: 80px;
+  margin-left: -4px;
+  color: #15315E;
+  background: #fff;
+  border-width: 0px;
+  i{
+    font-size: 24px;
+    margin-top: -4px;
+  }
+   @include mq-phone {
+    height: 56px;
+    width: 56px;
+    i{
+      font-size: 16px;
+      margin-top: -2px;
+    }
+   }
+}
+
+
+
+#qr-scanner-connect-with-us{
+  @include scanButton($color-skin-orange,$color-primary-white);
+  width: 100%;
+}
+
+.qr-scanner-look-at-other-organizations{
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  text-align: left;
+  a {
+    color: $color-primary-white;
+    &:hover { color: $color-primary-white; }
+    }
+  @include mq-phone{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 16px;
+    font-size: 14px !important;
+  }
+}
+
+#modal-timeout-continue-yes {
+  @include scanButton($color-skin-orange, $color-primary-white);
+
+}
+
+#modal-timeout-continue-no {
+  @include scanButton($color-primary-white, $color-skin-orange);
+}
+
+// the final success dialog block ************************
+#qr-scanner-confirmation{
+  background: transparent;
+//   height: 500px;
+//   width: 500px;
+  margin: 0 auto;
+  text-align: left;
+
+  .orange-bar {
+    border-bottom: 1px solid $color-skin-orange;
+    width: 70%;
+    height: 0;
+    margin: 30px 0;
+    @include mq-phone {
+      width: 100%;
+      margin: 24px 0;
+    }
+  }
+  .section-related{
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      @include mq-phone {
+        font-size: 18px;
+      }
+
+    }
+    .molecules__logo-item {
+      .card__logo {
+        &, a {
+          border-radius: 50px;
+          width: 100px;
+          height: 100px;
+        }
+        a img {
+          z-index: 2;
+        }
+      }
+      .card__link a {
+        color: $color-primary-white;
+        font-weight: $font-normal-weight;
+        font-size: 14px;
+        text-transform: none;
+      }
+    }
+  }
+
+  h3{
+    text-transform: uppercase;
+    color: $text-color;
+    margin: 0;
+    padding-top: 360px;
+    position: static;
+    &:after{
+        display: inline-block;
+        font-style: normal;
+        font-weight: 900;
+        content: "\2713";
+        font-size: 200px;
+        line-height: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -10px;
+        margin-left: -90px;
+        color: $color-skin-green;
+    }
+
+  }
+}
+
+
+.h3--qr-scanner-text {
+  color: $color-primary-white;
+  margin: -1em auto 1em 0;
+  @include mq-phone{
+    margin-top: 1em;
+    font-size: 22px;
+  }
+}
+
+.qr-scanner-text { color: $color-primary-white;}
+
+ #qr-scanner-text-confirmation{
+     color: $color-primary-white;
+     @include mq-phone {
+      p {
+        font-size: 16px;
+        }
+    }
+ }
+
+.qr-scanner-failure{
+	text-align: center;
+	h2 {
+	  color: #E1701E;
+	  text-transform: uppercase;
+	  @include mq-phone {font-size: 24px;}
+	}
+	.fa-exclamation-circle{
+		font-size: 100px;
+		@include mq-phone {font-size: 60px;}
+	}
+}
+
+@include mq-phone {
+  h2.modal__header {font-size: 20px;}
+
+}

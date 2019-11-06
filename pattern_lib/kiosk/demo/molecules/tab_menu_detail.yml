@@ -1,0 +1,27 @@
+model:
+  tabs:
+    -
+      link:
+        url: '/patient-advocacy-connection'
+        title: 'App Title 1'
+      styles:
+        - 'purple-skin'
+    -
+      link:
+        url: '/patient-advocacy-connection'
+        title: 'Patient Advocacy Connection'
+      active: '1'
+      styles:
+        - 'orange-skin'
+    -
+      link:
+        url: '/patient-advocacy-connection'
+        title: 'App Title 3'
+      styles:
+        - 'teal-skin'
+    -
+      link:
+        url: '/patient-advocacy-connection'
+        title: 'App Title 4'
+      styles:
+        - 'green-skin'

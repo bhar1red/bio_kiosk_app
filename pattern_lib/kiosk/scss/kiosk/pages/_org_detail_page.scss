@@ -1,0 +1,308 @@
+.pages__org-detail{
+
+//TODO Refactor this as a global button style. - Fitz
+.button {
+  // the scan buttons on the org details page
+  &--scan{
+    @include ctaButton;
+    background-color: $color-skin-orange;
+    color: $color-primary-white;
+    padding: 35px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    @include mq-phone { padding: 15px; font-size: 22px; }
+  }
+  &--scan-top{
+    width: 80%;
+    margin: 0 auto;
+    @include mq-tablet{ }
+  }
+  &--scan-bottom{
+    @include mq-tablet{margin-top: 36px;}
+    @include mq-phone {margin-top: 30px;}
+  }
+
+  &--email {
+    i{
+      margin-left: 4px;
+    }
+  }
+}
+
+
+  .page__inner {
+    padding: 0 0 30px 0 !important;
+
+    .region__hero{
+      position: relative;
+      .region__inner{
+        height: 400px;
+        background-color: white !important;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+        @include bgGradient(linear-gradient(0deg, #FFF 0%, #FFF 100%), 0.4);
+        @include mq-phone { height: auto; }
+      }
+      .org__overview{
+        width: 70%;
+        margin: 0 15%;
+        font-size: 24px;
+        color: $color-text-blue;
+          @include mq-phone {
+          font-size: 22px;
+          margin: 0 $margin-phone;
+          padding: 20px 20px 40px 0;
+          width: 90%;
+        }
+      }
+      .org__icon {
+        margin: 10px auto 30px -30px;
+        padding-top: 30px;
+        img {
+          width: auto;
+          height: 150px;
+        }
+      }
+      .org__summary {
+        width: 70%;
+		height: 140px;
+		overflow: hidden;
+        @include mq-tablet {width: 100%;}
+        @include mq-phone {width: 100%; height: auto; overflow: auto;}
+      }
+    }
+
+  }
+  .region__main {
+    width: 80%;
+    margin: auto;
+    margin-top: 780px;
+     @include mq-desktop  {
+        margin-top: 220px
+      }
+
+  }
+  h2.atoms__label, h4 {
+    @include kioskSecondaryFont;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 50px 0;
+  }
+  .region__popup{
+    clear: both;
+  }
+
+  .org__contact {
+    .organisms__item-grid{
+      margin-top: 60px;
+    }
+  }
+
+  .org__home {
+    width: 70%;
+    @include breadcrumb();
+  }
+  .org__mailto-top {
+    width: 30%;
+    text-transform: uppercase;
+    float: right;
+    text-align: right;
+    @include breadcrumb();
+  }
+  .org__title {
+    @include header($font-size-h1, $font-bold-weight, $text-color);
+    text-transform: uppercase;
+  }
+  .org__website,
+  .org__description,
+  .org__contact {
+    font-size: $font-size-description;
+    .atoms__text {
+      ol li,
+      ul li {
+        margin: 10px 0;
+        line-height: 28px;
+      }
+      ol {
+        counter-reset: item;
+        padding-left: 0;
+      }
+
+      ol > li {
+        padding: 0 0 0 2em;
+        text-indent: -2em;
+        list-style-type: none;
+        counter-increment: item;
+      }
+
+      ol > li:before {
+        padding-right: 22px;
+        font-weight: $font-bold-weight;
+        text-align: right;
+        content: counter(item) ".";
+      }
+    }
+  }
+  .org__website {
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+  .org__contact {
+    text-align: left;
+    .notes {
+      margin: 30px 0 20px;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      .atoms__icon-label {
+        i {
+          padding-right: 6px;
+          color: #7140B6;
+        }
+      }
+    }
+  }
+  .org__mailto-bottom {
+    @include links();
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    a {
+      color: $link-color;
+      display: block;
+      width: 140px;
+      margin: auto;
+      i {
+        width: 60px;
+        height: 60px;
+        margin: 15px auto;
+        border-radius: 30px;
+        padding: 16px;
+        color: white;
+        display: block;
+        background-color: $color_primary_green;
+        border: 3px solid #ccc;
+      }
+    }
+    p {
+      text-transform: none;
+      padding: 5px;
+    }
+  }
+  .org__mailto-bottom, .org__home, .org__mailto-top {
+    &.active {
+      -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+      transition: width 2s;
+      a {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+
+.pages__org-detail{
+  .page__inner {
+    .region__header{
+     @include mq-phone {top: 192px;}
+    }
+  }
+}
+
+
+@media #{$device} {
+  .pages__org-detail{
+    .page__inner {
+      .region__header{
+        position: relative;
+        // top: 200px;
+      }
+      .region__main {
+        margin-top: 250px;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .pages__org-detail{
+    .page__inner {
+      .region__branding {
+        @include branding-logo();
+      }
+      .region__hero {
+        overflow: hidden;
+        background: none;
+        background-color: $color-primary-white;
+        .region__inner {
+          background-image: none;
+          .org__summary {
+            //width: 100%;
+          }
+          .org__icon {
+            height: 150px;
+            position: relative;
+            img {
+              //To center the image of any size.
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              margin-right: -50%;
+              transform: translate(-50%, -50%)
+            }
+          }
+        }
+      }
+    }
+    .region__inner {
+      .org__home {
+        width: 100%;
+        display: block;
+      }
+      .org__mailto-top {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .org__contact {
+        text-align: center;
+        .atoms__label {
+          margin-bottom: 10px;
+        }
+        .organisms__item-grid {
+          .col-xs-12 {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$kiosk} {
+  .pages__org-detail{
+    .region__inner {
+      .org__home {
+        @include breadcrumb-kiosk()
+      }
+      .org__mailto-top {
+        @include breadcrumb-kiosk()
+      }
+    }
+    .org__website {
+      a {
+        color: $text-color;
+        text-decoration: none;
+        pointer-events: none;
+      }
+    }
+    .org__mailto-bottom {
+      a {
+        color: $text-color;
+      }
+    }
+  }
+}

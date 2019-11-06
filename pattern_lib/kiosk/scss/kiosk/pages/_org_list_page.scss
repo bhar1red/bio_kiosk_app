@@ -1,0 +1,82 @@
+.pages__org-list{
+
+  .page__inner {
+    padding: 0;
+    background-color: $gray-bcg-color;
+    @include mq-kiosk {
+      min-height: 1920px;
+    }
+  }
+
+  .region__hero{
+    padding-top: 10px;
+    @include mq-phone{
+      padding-top: 0px;
+    }
+  }
+
+  // this is the box shadowing inside the carosel pointing upward
+  .organisms__item-carousel .card__inner {box-shadow: inset 0px -10px 5px 0px rgba(36,68,99,.25)}
+
+  .region__main{
+    padding-top: 670px; //764px; //374px;
+    padding-bottom: 300px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    z-index: 1;
+
+    @include mq-tablet{
+      padding-top: 170px;
+      padding-bottom: 50px;
+    }
+
+    @include mq-phone{
+      padding-top: 230px;
+      padding-bottom: 20px;
+    }
+
+    @include mq-desktop  {
+        padding-top: 220px
+    }
+
+    // the "faded footer" at the bottom to hide some content implying there is more to see
+    &:after {
+      content:"";
+      display: block;
+      width: 100%;
+      height:  100px;
+      position: fixed;
+      left: 0px;
+      bottom: 0px;
+      background: linear-gradient(to top, rgba(217,224,231, 1) 0%,rgba(217,224,231,0) 100%);
+    }
+
+    .molecules__logo-item{
+      height: 292px;
+      overflow: hidden;
+      @include mq-tablet{ height: 272px; }
+      @include mq-phone{
+        margin-top: 0px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+
+// on the phone this replaces the carousel
+// todo: finish this for display in next sprint - Fitz
+.phone-carousel-replacement {
+  background-image: url(../..//..//..//kiosk/images/contact-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  color: $color-primary-white;
+  font-size: 24px;
+  display: table-cell;
+  vertical-align: middle;
+  display: none;
+}

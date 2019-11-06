@@ -1,0 +1,103 @@
+$triangle-height: 40px;
+
+.molecules__tab-menu{
+  .card__inner {
+    @include kioskSecondaryFont;
+    a:hover {
+      text-decoration: none;
+    }
+    .tab__container {
+      margin: 0;
+    }
+    .tab__item {
+      margin: 0;
+      padding: 0;
+      a {
+        color: $color-primary-white;
+      }
+      &.purple-skin{
+        @include triangle-skin($color-skin-purple, $triangle-height);
+      }
+      &.orange-skin{
+        @include triangle-skin($color-skin-orange, $triangle-height);
+      }
+      &.teal-skin{
+        @include triangle-skin($color-skin-teal, $triangle-height);
+      }
+      &.green-skin{
+        @include triangle-skin($color-skin-green, $triangle-height);
+      }
+      &.active {
+
+        .arrow-down{
+          position: absolute;
+          top:60px;
+          left: 0px;
+          height: 30px;
+          width: 100%;
+          z-index: 2;
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+          -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          @include mq-ie {display: none;}
+          @include mq-edge {display: none;}
+        }
+        @include mq-ie { box-shadow: inset 0 0 7px 7px rgba(255,255,255,.4);}
+        @include mq-edge { box-shadow: inset 0 0 7px 7px rgba(255,255,255,.4);}
+
+      }
+    }
+    .tab__link {
+      display: block;
+      height: 60px;
+      padding: 0 15px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      .atoms__link-field {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        width: calc(100% - 30px);
+        transform: translateY(-50%);
+        }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .molecules__tab-menu{
+    .card__inner {
+      .tab__item a {
+        font-size: 1.6vw;
+      }
+    }
+  }
+}
+
+@include mq-phone {
+  .molecules__tab-menu{
+    .card__inner {
+      .tab__item.active .arrow-down{
+          top: 14px;
+          left: 20px;
+          height: 12px;
+          width: 12px;
+          z-index: 2;
+          clip-path: polygon(0 0, 0% 100%, 100% 50%);
+          -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+          background: white !important;
+      }
+
+      .tab__item.active .tab__link{ font-size: 12px; }
+
+      .tab__link {
+          height: 40px;
+          padding: 0;
+          font-size: 10px;
+          box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,.1);
+          text-align: left;
+          a {padding-left: $margin-phone;}
+      }
+    }
+  }
+}

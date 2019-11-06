@@ -1,0 +1,14 @@
+model:
+  items:
+    -
+      model: '{{ YamlLoader(kiosk/demo/molecules/splash_pane_1.yml) }}'
+      tpl: '{{ TplNS(kiosk.molecules.splash_pane) }}'
+    -
+      model: '{{ YamlLoader(kiosk/demo/molecules/splash_pane_2.yml) }}'
+      tpl: '{{ TplNS(kiosk.molecules.splash_pane) }}'
+    -
+      model: '{{ YamlLoader(kiosk/demo/molecules/splash_pane_3.yml) }}'
+      tpl: '{{ TplNS(kiosk.molecules.splash_pane) }}'
+    -
+      model: '{{ YamlLoader(kiosk/demo/molecules/splash_pane_4.yml) }}'
+      tpl: '{{ TplNS(kiosk.molecules.splash_pane) }}'

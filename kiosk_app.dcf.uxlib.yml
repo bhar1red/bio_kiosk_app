@@ -1,0 +1,3 @@
+kiosk.uxlib:
+  namespaces:
+    kiosk: sites/all/modules/custom/kiosk_app/pattern_lib/kiosk
